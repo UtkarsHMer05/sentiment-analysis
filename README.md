@@ -16,24 +16,29 @@
 
 </div>
 
-![Screenshot 2025-06-04 at 1 23 46 PM](https://github.com/user-attachments/assets/b1601972-3300-4629-b844-dd380b1fcff6)
 **MAIN LANDING**
 
----
-![Screenshot 2025-06-04 at 1 25 07 PM](https://github.com/user-attachments/assets/acd41eed-066d-4966-a7e0-0f8af20b52c3)
-![Screenshot 2025-06-04 at 1 25 14 PM](https://github.com/user-attachments/assets/bc2143fe-476c-4405-82d8-b92b4acad322)
-**LOGIN AND SIGNUP PAGE**
+![Screenshot 2025-06-04 at 1 23 46 PM](https://github.com/user-attachments/assets/b1601972-3300-4629-b844-dd380b1fcff6)
 
 ---
+**LOGIN AND SIGNUP PAGE**
+
+![Screenshot 2025-06-04 at 1 25 07 PM](https://github.com/user-attachments/assets/acd41eed-066d-4966-a7e0-0f8af20b52c3)
+![Screenshot 2025-06-04 at 1 25 14 PM](https://github.com/user-attachments/assets/bc2143fe-476c-4405-82d8-b92b4acad322)
+
+---
+**MAIN DASHBOARD WITH WORKING EXAMPLE**
+
 ![Screenshot 2025-06-04 at 1 25 37 PM](https://github.com/user-attachments/assets/6338cf07-e3ca-4a74-b964-1559dad0d2a9)
 ![Screenshot 2025-06-04 at 1 28 12 PM](https://github.com/user-attachments/assets/f0ecda1e-39d7-4ed2-a635-efcf66348456)
 ![Screenshot 2025-06-04 at 1 52 29 PM](https://github.com/user-attachments/assets/d4b293ad-2a63-4c15-b75e-536e1e52b650)
 ![Screenshot 2025-06-04 at 1 53 26 PM](https://github.com/user-attachments/assets/3ede5f58-c754-4fec-a9d9-39cc610acb75)
 ![Screenshot 2025-06-04 at 1 53 00 PM](https://github.com/user-attachments/assets/15fa9613-ef52-4b9b-ace5-57aa78db54bb)
 
-**MAIN DASHBOARD WITH WORKING EXAMPLE**
 
 ---
+
+**LIVE DETECTION PAGE AND ANALYSIS RESULTS**
 
 ![Screenshot 2025-06-04 at 1 54 22 PM](https://github.com/user-attachments/assets/559e0407-9d7b-4061-a053-273755f1ba36)
 ![Screenshot 2025-06-04 at 1 59 13 PM](https://github.com/user-attachments/assets/576e24f0-1671-4bc9-a1e3-8efe91a18930)
@@ -41,9 +46,8 @@
 ![Screenshot 2025-06-04 at 1 59 32 PM](https://github.com/user-attachments/assets/a3973568-c6ee-4ff3-a58b-bfc0a26b03da)
 ![Screenshot 2025-06-04 at 1 59 38 PM](https://github.com/user-attachments/assets/bb1e2d0f-29b9-4b1b-be85-5f6607cf06bd)
 
-**LIVE DETECTION PAGE AND ANALYSIS RESULTS**
 
---
+---
 
 ## 📋 Table of Contents
 
