@@ -12,7 +12,7 @@
 
 **🚀 Real-time multimodal AI sentiment analysis with live video processing, powered by advanced deep learning models and cloud infrastructure.**
 
-[✨ Live Demo](https://layers-demo.vercel.app) • [📖 Documentation](Read Below) • [🐛 Report Bug](https://github.com/UtkarsHMerc05/layers/issues) • [💡 Feature Request](https://github.com/UtkarsHMerc05/layers/issues)
+• [📖 Documentation](Read Below) • [🐛 Report Bug](https://github.com/UtkarsHMerc05/layers/issues) • [💡 Feature Request](https://github.com/UtkarsHMerc05/layers/issues)
 
 </div>
 
@@ -32,8 +32,8 @@
 ![Screenshot 2025-06-04 at 1 25 37 PM](https://github.com/user-attachments/assets/6338cf07-e3ca-4a74-b964-1559dad0d2a9)
 ![Screenshot 2025-06-04 at 1 28 12 PM](https://github.com/user-attachments/assets/f0ecda1e-39d7-4ed2-a635-efcf66348456)
 ![Screenshot 2025-06-04 at 1 52 29 PM](https://github.com/user-attachments/assets/d4b293ad-2a63-4c15-b75e-536e1e52b650)
-![Screenshot 2025-06-04 at 1 53 26 PM](https://github.com/user-attachments/assets/3ede5f58-c754-4fec-a9d9-39cc610acb75)
 ![Screenshot 2025-06-04 at 1 53 00 PM](https://github.com/user-attachments/assets/15fa9613-ef52-4b9b-ace5-57aa78db54bb)
+![Screenshot 2025-06-04 at 1 53 26 PM](https://github.com/user-attachments/assets/3ede5f58-c754-4fec-a9d9-39cc610acb75)
 
 
 ---
