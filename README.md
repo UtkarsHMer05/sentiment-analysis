@@ -174,20 +174,20 @@ Traditional sentiment analysis tools only process text, missing crucial emotiona
 ## 🏗️ Architecture
 
 ### System Overview
-graph TB
-A[Web Frontend] --> B[Next.js API]
-B --> C[AWS SageMaker]
-B --> D[Stripe API]
-B --> E[Database]
-C --> F[Python ML Backend]
-F --> G[Multimodal Models]
-G --> H[BERT + 3D CNN + Audio CNN]
+    graph TB
+    A[Web Frontend] --> B[Next.js API]
+    B --> C[AWS SageMaker]
+    B --> D[Stripe API]
+    B --> E[Database]
+    C --> F[Python ML Backend]
+    F --> G[Multimodal Models]
+    G --> H[BERT + 3D CNN + Audio CNN]
 
 
 ### Data Flow
-User Upload → Preprocessing → Feature Extraction → Model Inference → Results
-↓ ↓ ↓ ↓ ↓
-WebRTC FFmpeg BERT/CNN/Audio SageMaker Real-time UI
+    User Upload → Preprocessing → Feature Extraction → Model Inference → Results
+    ↓ ↓ ↓ ↓ ↓
+    WebRTC FFmpeg BERT/CNN/Audio SageMaker Real-time UI
 
 
 ---
@@ -583,18 +583,18 @@ Test auto-scaling
 
 
 ### Example Test
-describe('Sentiment Analysis API', () => {
-it('should analyze video and return results', async () => {
-const response = await request(app)
-.post('/api/sentiment-inference')
-.set('Authorization', 'Bearer test_api_key')
-.send({ key: 'test-video.mp4' })
-.expect(200)
-text
-expect(response.body).toHaveProperty('analysis')
-expect(response.body.analysis.confidence).toBeGreaterThan(0.5)
-})
-})
+    describe('Sentiment Analysis API', () => {
+    it('should analyze video and return results', async () => {
+    const response = await request(app)
+    .post('/api/sentiment-inference')
+    .set('Authorization', 'Bearer test_api_key')
+    .send({ key: 'test-video.mp4' })
+    .expect(200)
+    text
+    expect(response.body).toHaveProperty('analysis')
+    expect(response.body.analysis.confidence).toBeGreaterThan(0.5)
+    })
+    })
 
 
 ---
@@ -803,7 +803,7 @@ copies or substantial portions of the Software.
 
 ### Core Contributors
 - **AI/ML**-------|
-- **Frontend**    |=>Done By UtkarshHMerc05
+- **Frontend**    |=>Done By UtkarshHMer05
 - **Backend**     | 
 - **DevOps**------| 
 
