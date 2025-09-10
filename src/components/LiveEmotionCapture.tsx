@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Camera,
@@ -46,8 +46,8 @@ interface QuotaStatus {
   };
 }
 
-// Enhanced Background Animations Component
-const LiveDetectionBackgroundAnimations = () => {
+// Enhanced Background Animations Component - OPTIMIZED with React.memo
+const LiveDetectionBackgroundAnimations = memo(() => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -58,19 +58,19 @@ const LiveDetectionBackgroundAnimations = () => {
     return null;
   }
 
-  // Generate floating elements
-  const floatingElements = Array.from({ length: 30 }, (_, i) => ({
+  // Generate floating elements - REDUCED from 30 to 12 for performance
+  const floatingElements = Array.from({ length: 12 }, (_, i) => ({
     id: i,
-    size: 3 + (i % 8),
-    x: (i * 17.3) % 100,
-    y: (i * 23.7) % 100,
-    duration: 12 + (i % 8),
-    delay: i * 0.3,
+    size: 4 + (i % 6),
+    x: (i * 20) % 100,
+    y: (i * 25) % 100,
+    duration: 15 + (i % 6),
+    delay: i * 0.5,
   }));
 
   return (
     <>
-      {/* Dynamic Gradient Background */}
+      {/* Dynamic Gradient Background - OPTIMIZED with longer duration */}
       <motion.div
         className="absolute inset-0 -z-20"
         animate={{
@@ -81,55 +81,57 @@ const LiveDetectionBackgroundAnimations = () => {
           ],
         }}
         transition={{
-          duration: 25,
+          duration: 40, // INCREASED from 25 to 40 for smoother performance
           repeat: Infinity,
           ease: "linear",
         }}
       />
 
-      {/* Large Floating Orbs */}
-      {Array.from({ length: 8 }, (_, i) => (
+      {/* Large Floating Orbs - REDUCED from 8 to 4 for performance */}
+      {Array.from({ length: 4 }, (_, i) => (
         <motion.div
           key={i}
-          className="absolute rounded-full bg-gradient-to-r from-purple-500/20 to-blue-500/20 blur-3xl"
+          className="absolute rounded-full bg-gradient-to-r from-purple-500/15 to-blue-500/15 blur-3xl"
           style={{
-            width: 150 + i * 40,
-            height: 150 + i * 40,
-            left: `${(i * 12) % 100}%`,
-            top: `${(i * 18) % 100}%`,
+            width: 180 + i * 30,
+            height: 180 + i * 30,
+            left: `${(i * 25) % 100}%`,
+            top: `${(i * 30) % 100}%`,
+            willChange: 'transform, opacity', // ADDED for browser optimization
           }}
           animate={{
-            scale: [1, 1.4, 1],
-            opacity: [0.2, 0.7, 0.2],
-            x: [0, 60, 0],
-            y: [0, -50, 0],
+            scale: [1, 1.3, 1],
+            opacity: [0.1, 0.4, 0.1],
+            x: [0, 40, 0],
+            y: [0, -30, 0],
           }}
           transition={{
-            duration: 18 + i * 4,
+            duration: 22 + i * 4, // INCREASED duration for smoother animation
             repeat: Infinity,
-            delay: i * 3,
+            delay: i * 4,
             ease: "easeInOut",
           }}
         />
       ))}
 
-      {/* Smaller Floating Elements */}
+      {/* Smaller Floating Elements - OPTIMIZED animations */}
       {floatingElements.map((element) => (
         <motion.div
           key={element.id}
-          className="absolute rounded-full bg-gradient-to-r from-blue-400/40 to-purple-500/40"
+          className="absolute rounded-full bg-gradient-to-r from-blue-400/30 to-purple-500/30"
           style={{
             width: element.size,
             height: element.size,
             left: `${element.x}%`,
             top: `${element.y}%`,
+            willChange: 'transform, opacity', // ADDED for browser optimization
           }}
           animate={{
-            y: [0, -100, 0],
-            x: [0, 30, 0],
-            rotate: [0, 360],
-            scale: [1, 1.3, 1],
-            opacity: [0.3, 0.9, 0.3],
+            y: [0, -80, 0], // REDUCED movement distance
+            x: [0, 20, 0], // REDUCED movement distance  
+            rotate: [0, 180], // SIMPLIFIED rotation
+            scale: [1, 1.2, 1], // REDUCED scale change
+            opacity: [0.2, 0.6, 0.2],
           }}
           transition={{
             duration: element.duration,
@@ -140,45 +142,47 @@ const LiveDetectionBackgroundAnimations = () => {
         />
       ))}
 
-      {/* Animated Grid Pattern */}
+      {/* Animated Grid Pattern - OPTIMIZED with reduced frequency */}
       <motion.div
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0 opacity-8"
         animate={{
-          opacity: [0.05, 0.15, 0.05],
+          opacity: [0.03, 0.08, 0.03], // REDUCED opacity range
         }}
-        transition={{ duration: 8, repeat: Infinity }}
+        transition={{ duration: 12, repeat: Infinity }} // INCREASED duration
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,_#3b82f6_1px,transparent_1px)] [background-size:60px_60px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,_#3b82f6_1px,transparent_1px)] [background-size:80px_80px]" />
       </motion.div>
 
-      {/* Floating Sparkles */}
-      {Array.from({ length: 15 }, (_, i) => (
+      {/* Floating Sparkles - REDUCED from 15 to 6 for performance */}
+      {Array.from({ length: 6 }, (_, i) => (
         <motion.div
           key={`sparkle-${i}`}
           className="absolute"
           style={{
-            left: `${(i * 23) % 100}%`,
-            top: `${(i * 31) % 100}%`,
+            left: `${(i * 35) % 100}%`,
+            top: `${(i * 40) % 100}%`,
           }}
           animate={{
-            y: [0, -200, 0],
-            opacity: [0, 1, 0],
-            scale: [0.5, 1.5, 0.5],
-            rotate: [0, 180, 360],
+            y: [0, -150, 0], // REDUCED movement distance
+            opacity: [0, 0.8, 0],
+            scale: [0.6, 1.2, 0.6],
+            rotate: [0, 120, 240], // SIMPLIFIED rotation
           }}
           transition={{
-            duration: 8 + (i % 4),
+            duration: 10 + (i % 3), // INCREASED base duration
             repeat: Infinity,
-            delay: i * 0.5,
+            delay: i * 1, // INCREASED delay between sparkles
             ease: "easeInOut",
           }}
         >
-          <Sparkles className="h-3 w-3 text-purple-400/60" />
+          <Sparkles className="h-2 w-2 text-purple-400/50" />
         </motion.div>
       ))}
     </>
   );
-};
+});
+
+LiveDetectionBackgroundAnimations.displayName = 'LiveDetectionBackgroundAnimations';
 
 // Loading Animation Component
 const LoadingAnimation = () => (
@@ -275,45 +279,45 @@ const pulseVariants = {
   },
 };
 
-// Enhanced emotion variants with unique animations
+// Enhanced emotion variants with unique animations - OPTIMIZED for performance
 const emotionVariants = {
   joy: {
     color: "#fbbf24",
-    scale: 1.1,
-    y: [0, -8, 0],
-    rotate: [0, 5, -5, 0],
-    transition: { duration: 0.8, repeat: Infinity },
+    scale: 1.05, // REDUCED scale
+    y: [0, -6, 0], // REDUCED movement
+    rotate: [0, 3, -3, 0], // REDUCED rotation
+    transition: { duration: 1.5, repeat: Infinity }, // INCREASED duration
   },
   sadness: {
     color: "#3b82f6",
-    scale: 1.1,
-    y: [0, 8, 0],
-    transition: { duration: 1.2, repeat: Infinity },
+    scale: 1.05,
+    y: [0, 6, 0],
+    transition: { duration: 2, repeat: Infinity }, // INCREASED duration
   },
   anger: {
     color: "#ef4444",
-    scale: 1.1,
-    x: [-3, 3, -3, 0],
-    rotate: [-2, 2, -2, 0],
-    transition: { duration: 0.3, repeat: Infinity },
+    scale: 1.05,
+    x: [-2, 2, -2, 0], // REDUCED movement
+    rotate: [-1, 1, -1, 0], // REDUCED rotation
+    transition: { duration: 0.6, repeat: Infinity }, // INCREASED duration
   },
   fear: {
     color: "#8b5cf6",
-    scale: [1, 1.08, 1],
-    rotate: [0, -3, 3, 0],
-    transition: { duration: 0.4, repeat: Infinity },
+    scale: [1, 1.05, 1],
+    rotate: [0, -2, 2, 0], // REDUCED rotation
+    transition: { duration: 0.8, repeat: Infinity }, // INCREASED duration
   },
   surprise: {
     color: "#10b981",
-    scale: [1, 1.25, 1],
-    y: [0, -10, 0],
-    transition: { duration: 0.6, repeat: Infinity },
+    scale: [1, 1.15, 1], // REDUCED scale
+    y: [0, -6, 0], // REDUCED movement
+    transition: { duration: 1, repeat: Infinity }, // INCREASED duration
   },
   disgust: {
     color: "#f97316",
-    scale: 1.1,
-    rotate: [-8, 8, -8, 0],
-    transition: { duration: 1, repeat: Infinity },
+    scale: 1.05,
+    rotate: [-4, 4, -4, 0], // REDUCED rotation
+    transition: { duration: 1.5, repeat: Infinity }, // INCREASED duration
   },
   neutral: {
     color: "#6b7280",
@@ -476,10 +480,10 @@ export default function LiveEmotionCapture(): JSX.Element {
           <motion.div
             animate={{
               rotate: [0, 360],
-              scale: [1, 1.1, 1],
+              scale: [1, 1.05, 1], // REDUCED scale change
             }}
             transition={{
-              duration: 4,
+              duration: 8, // INCREASED duration for smoother performance
               repeat: Infinity,
               ease: "easeInOut",
             }}
@@ -490,12 +494,12 @@ export default function LiveEmotionCapture(): JSX.Element {
             className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-xl font-bold text-transparent sm:text-2xl"
             animate={{
               textShadow: [
-                "0 0 10px rgba(139, 92, 246, 0.5)",
-                "0 0 20px rgba(139, 92, 246, 0.8)",
-                "0 0 10px rgba(139, 92, 246, 0.5)",
+                "0 0 8px rgba(139, 92, 246, 0.3)",
+                "0 0 12px rgba(139, 92, 246, 0.5)",
+                "0 0 8px rgba(139, 92, 246, 0.3)",
               ],
             }}
-            transition={{ duration: 3, repeat: Infinity }}
+            transition={{ duration: 6, repeat: Infinity }} // INCREASED duration for smoother performance
           >
             Live Emotion Detection
           </motion.h1>
@@ -906,11 +910,10 @@ export default function LiveEmotionCapture(): JSX.Element {
                           : actions.startListening
                       }
                       variant="outline"
-                      className={`flex items-center gap-2 border-white/20 bg-white/10 text-white hover:bg-white/20 ${
-                        state.isListening
+                      className={`flex items-center gap-2 border-white/20 bg-white/10 text-white hover:bg-white/20 ${state.isListening
                           ? "border-red-400/30 bg-red-500/20"
                           : ""
-                      }`}
+                        }`}
                     >
                       <motion.div
                         animate={
@@ -983,7 +986,7 @@ export default function LiveEmotionCapture(): JSX.Element {
                     className={`flex items-center gap-4 text-2xl font-bold ${getEmotionColor(state.currentEmotion)}`}
                     animate={
                       emotionVariants[
-                        state.currentEmotion as keyof typeof emotionVariants
+                      state.currentEmotion as keyof typeof emotionVariants
                       ]
                     }
                     transition={{ duration: 0.3 }}
@@ -1156,10 +1159,10 @@ export default function LiveEmotionCapture(): JSX.Element {
                   animate={{
                     borderColor: state.isListening
                       ? [
-                          "rgba(59, 130, 246, 0.3)",
-                          "rgba(139, 92, 246, 0.3)",
-                          "rgba(59, 130, 246, 0.3)",
-                        ]
+                        "rgba(59, 130, 246, 0.3)",
+                        "rgba(139, 92, 246, 0.3)",
+                        "rgba(59, 130, 246, 0.3)",
+                      ]
                       : "rgba(255, 255, 255, 0.2)",
                   }}
                   transition={{ duration: 2, repeat: Infinity }}
@@ -1187,11 +1190,10 @@ export default function LiveEmotionCapture(): JSX.Element {
                       transition={{ duration: 1.5, repeat: Infinity }}
                     >
                       <Badge
-                        className={`text-xs ${
-                          state.isListening
+                        className={`text-xs ${state.isListening
                             ? "border-green-400/30 bg-green-500/20 text-green-300"
                             : "border-gray-400/30 bg-gray-500/20 text-gray-300"
-                        }`}
+                          }`}
                       >
                         {state.isListening ? "🟢 Live" : "🔴 Stopped"}
                       </Badge>
