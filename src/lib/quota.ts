@@ -108,8 +108,6 @@ export async function checkAndUpdateQuota(
     const updatedQuota = await db.apiQuota.update({
       where: {
         userId,
-        // Ensure we don't exceed quota (atomic check)
-        requestsUsed: { lte: quota.maxRequests - cost },
       },
       data: {
         requestsUsed: { increment: cost },

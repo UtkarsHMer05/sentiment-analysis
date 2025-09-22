@@ -36,10 +36,13 @@ interface VideoUploadData {
 export async function POST(
   request: NextRequest,
 ): Promise<NextResponse<UploadResponse>> {
+  console.log("🚀 Live recording upload endpoint hit");
   try {
     // Check authentication
+    console.log("🔐 Checking authentication...");
     const session = await auth();
     if (!session?.user?.id) {
+      console.log("❌ Authentication failed: No session found");
       return NextResponse.json(
         {
           success: false,
@@ -49,11 +52,15 @@ export async function POST(
         { status: 401 },
       );
     }
+    console.log(`✅ Authenticated as user: ${session.user.id}`);
 
+    console.log("📦 Parsing request body...");
     const body: VideoUploadData = await request.json();
     const { fileType, duration, size } = body;
+    console.log("Request body parsed:", { fileType, duration, size });
 
     if (!fileType || !duration) {
+      console.log("❌ Validation failed: Missing fileType or duration");
       return NextResponse.json(
         {
           success: false,
@@ -65,6 +72,7 @@ export async function POST(
 
     // Validate file type
     if (!fileType.match(/\.(webm|mp4|mov|avi)$/i)) {
+      console.log(`❌ Validation failed: Invalid file type ${fileType}`);
       return NextResponse.json(
         {
           success: false,
@@ -77,6 +85,7 @@ export async function POST(
 
     // Validate file size (max 100MB for live recordings)
     if (size > 100 * 1024 * 1024) {
+      console.log(`❌ Validation failed: File size too large ${size}`);
       return NextResponse.json(
         {
           success: false,
@@ -86,13 +95,15 @@ export async function POST(
         { status: 400 },
       );
     }
+    console.log("✅ Request body validated");
 
-    // Determine quota type based on duration
-    const quotaType: QuotaType =
-      duration === "2min" ? "live_emotion_2min" : "live_emotion_1min";
+    // Determine quota type - use simplified live_detection for all live recordings
+    const quotaType: QuotaType = "live_detection";
     const quotaCost = QUOTA_COSTS[quotaType];
+    console.log(`💳 Quota type: ${quotaType}, Cost: ${quotaCost}`);
 
     // Check quota before processing
+    console.log("🧐 Checking quota (pre-check)...");
     const quotaCheck = await checkAndUpdateQuota(
       session.user.id,
       quotaType,
@@ -100,6 +111,7 @@ export async function POST(
     );
 
     if (!quotaCheck.success) {
+      console.log("❌ Quota pre-check failed:", quotaCheck.message);
       return NextResponse.json(
         {
           success: false,
@@ -113,8 +125,10 @@ export async function POST(
         { status: 429 },
       );
     }
+    console.log("✅ Quota pre-check passed. Remaining:", quotaCheck.remaining);
 
     // Deduct quota after successful check
+    console.log("💸 Deducting quota...");
     const quotaDeduction = await checkAndUpdateQuota(
       session.user.id,
       quotaType,
@@ -122,6 +136,7 @@ export async function POST(
     );
 
     if (!quotaDeduction.success) {
+      console.log("❌ Quota deduction failed");
       return NextResponse.json(
         {
           success: false,
@@ -130,19 +145,25 @@ export async function POST(
         { status: 500 },
       );
     }
+    console.log("✅ Quota deducted. Remaining:", quotaDeduction.remaining);
 
     try {
       // Generate S3 upload URL
+      console.log("☁️ Generating S3 upload URL...");
       const s3Client = new S3Client({
         region: env.AWS_REGION,
         credentials: {
           accessKeyId: env.AWS_ACCESS_KEY_ID,
           secretAccessKey: env.AWS_SECRET_ACCESS_KEY,
         },
+        // Disable checksum middleware to prevent 403 errors with browser uploads
+        requestChecksumCalculation: "WHEN_REQUIRED",
       });
+      console.log("S3 client created for region:", env.AWS_REGION);
 
       const fileId = crypto.randomUUID();
       const key = `live-recordings/${session.user.id}/${fileId}${fileType}`;
+      console.log("Generated S3 key:", key);
 
       const command = new PutObjectCommand({
         Bucket: env.AWS_INFERENCE_BUCKET,
@@ -158,9 +179,13 @@ export async function POST(
 
       const uploadUrl = await getSignedUrl(s3Client, command, {
         expiresIn: 3600,
+        // Simplify the signed headers to only include host
+        signableHeaders: new Set(['host']),
       });
+      console.log("✅ S3 pre-signed URL generated successfully.");
 
       // Create database record
+      console.log("✍️ Creating video file record in database...");
       await db.videoFile.create({
         data: {
           key: key,
@@ -168,6 +193,7 @@ export async function POST(
           analyzed: false,
         },
       });
+      console.log("✅ Database record created.");
 
       return NextResponse.json({
         success: true,
@@ -182,9 +208,11 @@ export async function POST(
       });
     } catch (uploadError) {
       // Refund quota if upload URL generation fails
+      console.error("❌ Error during S3 URL generation or DB write:", uploadError);
+      console.log("💰 Refunding quota...");
       await refundQuota(session.user.id, quotaType);
+      console.log("✅ Quota refunded.");
 
-      console.error("Upload URL generation error:", uploadError);
       return NextResponse.json(
         {
           success: false,
@@ -194,7 +222,7 @@ export async function POST(
       );
     }
   } catch (error) {
-    console.error("Live recording upload API error:", error);
+    console.error("🚨 Live recording upload API error:", error);
     return NextResponse.json(
       {
         success: false,

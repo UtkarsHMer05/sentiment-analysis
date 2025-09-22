@@ -133,13 +133,90 @@ export function AutoUploadModal({
     });
   };
 
-  const getApiKey = (): string => {
-    return localStorage.getItem("sentiment_api_key") || "";
-  };
+  const getApiKey = async (): Promise<string> => {
+    try {
+      console.log("🔑 Fetching API key for analysis...");
 
-  // Start upload process
+      // First check if we have a cached API key in localStorage
+      const cachedKey = localStorage.getItem("sentiment_api_key");
+      if (cachedKey && cachedKey.startsWith("sa_live_")) {
+        console.log("✅ Using cached API key");
+        return cachedKey;
+      }
+
+      console.log("📡 Fetching fresh API key from server...");
+
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 8000); // 8 second timeout
+
+      try {
+        const response = await fetch("/api/user/api-key", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          signal: controller.signal,
+        });
+
+        clearTimeout(timeoutId);
+
+        if (!response.ok) {
+          console.error("❌ API key request failed:", response.status, response.statusText);
+          throw new Error(`Failed to get API key: ${response.status} ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        console.log("✅ API key retrieved successfully");
+
+        if (!data.apiKey) {
+          throw new Error("No API key returned from server");
+        }
+
+        // Cache the API key for future use
+        localStorage.setItem("sentiment_api_key", data.apiKey);
+
+        return data.apiKey;
+      } catch (fetchError) {
+        clearTimeout(timeoutId);
+        throw fetchError;
+      }
+    } catch (error) {
+      console.error("❌ Error fetching API key:", error);
+
+      // If it's an abort error, treat it as timeout
+      if (error instanceof Error && error.name === "AbortError") {
+        throw new Error("API key request timed out. Please try again.");
+      }
+
+      // Final fallback to localStorage
+      console.warn("⚠️ Falling back to localStorage API key");
+      const fallbackKey = localStorage.getItem("sentiment_api_key");
+
+      if (!fallbackKey) {
+        throw new Error("Unable to retrieve API key. Please refresh the page and try again.");
+      }
+
+      return fallbackKey;
+    }
+  };  // Start upload process
   const startUpload = async () => {
-    if (!videoBlob) return;
+    if (!videoBlob) {
+      console.error("❌ No video blob available for upload");
+      setError("No video data available. Please try recording again.");
+      return;
+    }
+
+    if (videoBlob.size === 0) {
+      console.error("❌ Video blob is empty");
+      setError("Video recording is empty. Please try recording again.");
+      return;
+    }
+
+    console.log("📹 Video blob details:", {
+      size: videoBlob.size,
+      type: videoBlob.type,
+      sizeInMB: Math.round(videoBlob.size / (1024 * 1024) * 100) / 100,
+    });
 
     setIsProcessing(true);
     setError(null);
@@ -158,39 +235,115 @@ export function AutoUploadModal({
       setCurrentStage(1);
       updateStageStatus(1, "active", 0);
 
-      console.log("📤 Getting upload URL...");
-      const uploadUrlResponse = await fetch("/api/upload-url", {
+      await simulateProgress(1, 20, 1000);
+
+      console.log("⬆️ Uploading to S3...");
+      console.log("Blob details:", { size: videoBlob.size, type: videoBlob.type });
+
+      const uploadUrlResponse = await fetch("/api/live-recording-upload", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${getApiKey()}`,
         },
         body: JSON.stringify({
           fileType: ".mp4",
+          duration: "1min", // Set to 1min for live recordings (most common case)
+          size: videoBlob.size,
         }),
       });
 
       if (!uploadUrlResponse.ok) {
         const error = await uploadUrlResponse.json();
-        throw new Error(error.error || "Failed to get upload URL");
+        console.error("❌ Upload URL request failed:", error);
+        throw new Error(error.error || error.message || "Failed to get upload URL");
       }
 
-      const { url, key, quota } = await uploadUrlResponse.json();
-      console.log("✅ Upload URL obtained, quota status:", quota);
+      const uploadData = await uploadUrlResponse.json();
+
+      if (!uploadData.success) {
+        throw new Error(uploadData.error || "Failed to get upload URL");
+      }
+
+      const { uploadUrl, key, quotaInfo } = uploadData;
+      console.log("✅ Upload URL obtained, key:", key, "quota status:", quotaInfo);
+
+      // Validate that we have a proper key
+      if (!key || typeof key !== "string") {
+        throw new Error("Invalid key received from upload URL endpoint");
+      }
 
       await simulateProgress(1, 50, 1000);
 
       console.log("☁️ Uploading video to S3...");
-      const uploadResponse = await fetch(url, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "video/mp4",
-        },
-        body: videoBlob,
+      console.log("📝 Upload details:", {
+        url: uploadUrl.substring(0, 100) + "...", // Truncated for security
+        contentType: "video/mp4",
+        videoSize: videoBlob.size,
+        videoType: videoBlob.type,
       });
 
-      if (!uploadResponse.ok) {
-        throw new Error("Failed to upload video to S3");
+      // Retry mechanism for S3 upload
+      let uploadResponse: Response | undefined;
+      let retryCount = 0;
+      const maxRetries = 3;
+
+      while (retryCount < maxRetries) {
+        try {
+          uploadResponse = await fetch(uploadUrl, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "video/mp4",
+            },
+            body: videoBlob,
+          });
+
+          if (uploadResponse.ok) {
+            break; // Success, exit retry loop
+          }
+
+          // If not successful and we have retries left, continue to retry
+          if (retryCount < maxRetries - 1) {
+            console.warn(`⚠️ S3 upload attempt ${retryCount + 1} failed, retrying...`);
+            retryCount++;
+            await new Promise(resolve => setTimeout(resolve, 1000 * retryCount)); // Exponential backoff
+            continue;
+          }
+
+        } catch (fetchError) {
+          console.error(`❌ S3 upload attempt ${retryCount + 1} failed with error:`, fetchError);
+          if (retryCount < maxRetries - 1) {
+            retryCount++;
+            await new Promise(resolve => setTimeout(resolve, 1000 * retryCount)); // Exponential backoff
+            continue;
+          }
+          throw fetchError;
+        }
+      }
+
+      if (!uploadResponse || !uploadResponse.ok) {
+        console.error("❌ S3 upload failed:", uploadResponse ? {
+          status: uploadResponse.status,
+          statusText: uploadResponse.statusText,
+          headers: Object.fromEntries(uploadResponse.headers.entries()),
+        } : "No response received");
+
+        let errorMessage = uploadResponse
+          ? `Failed to upload video to S3 (${uploadResponse.status}: ${uploadResponse.statusText})`
+          : "Failed to upload video to S3 - No response received";
+
+        if (uploadResponse) {
+          try {
+            const errorText = await uploadResponse.text();
+            if (errorText) {
+              console.error("❌ S3 error response:", errorText);
+              errorMessage += ` - ${errorText}`;
+            }
+          } catch (e) {
+            console.error("❌ Could not read S3 error response:", e);
+          }
+        }
+
+        throw new Error(errorMessage);
       }
 
       await simulateProgress(1, 100, 500);
@@ -201,25 +354,122 @@ export function AutoUploadModal({
       setCurrentStage(2);
       updateStageStatus(2, "active", 0);
 
-      await simulateProgress(2, 30, 1000);
+      await simulateProgress(2, 20, 1000);
 
       console.log("🤖 Starting AI sentiment analysis...");
-      const analysisResponse = await fetch("/api/sentiment-inference", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${getApiKey()}`,
-        },
-        body: JSON.stringify({ key }),
-      });
 
-      await simulateProgress(2, 80, 2000);
+      // Update progress to show we're fetching API key
+      updateStageStatus(2, "active", 30);
+      console.log("🔑 Getting API key for authentication...");
 
-      if (!analysisResponse.ok) {
-        const error = await analysisResponse.json();
-        throw new Error(error.error || "Analysis failed");
+      const apiKey = await getApiKey();
+
+      if (!apiKey) {
+        throw new Error("Unable to authenticate for analysis. Please try refreshing the page.");
       }
 
+      console.log("✅ API key obtained, making analysis request");
+      updateStageStatus(2, "active", 50);
+
+      console.log("🧪 Testing API key and file validation first...");
+
+      // First test the API key and file validation
+      try {
+        const testController = new AbortController();
+        const testTimeoutId = setTimeout(() => testController.abort(), 10000); // 10 second timeout
+
+        const testResponse = await fetch("/api/test-analysis", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${apiKey}`,
+          },
+          body: JSON.stringify({ key }),
+          signal: testController.signal,
+        });
+
+        clearTimeout(testTimeoutId);
+
+        if (!testResponse.ok) {
+          const testError = await testResponse.json();
+          console.error("❌ Test validation failed:", testError);
+          throw new Error(`Validation failed: ${testError.error}`);
+        }
+
+        const testResult = await testResponse.json();
+        console.log("✅ Validation passed:", testResult);
+      } catch (testError) {
+        console.error("❌ Test endpoint failed:", testError);
+        if (testError instanceof Error && testError.name === "AbortError") {
+          throw new Error("Validation request timed out. Please try again.");
+        }
+        throw new Error(`Pre-analysis validation failed: ${testError instanceof Error ? testError.message : "Unknown error"}`);
+      }
+
+      console.log("🔍 Making analysis request to /api/sentiment-inference with key:", key);
+
+      // Validate key before making request
+      if (!key || typeof key !== "string" || !key.includes("live-recordings/")) {
+        throw new Error("Invalid video key for analysis. Please try uploading again.");
+      }
+
+      // Create abort controller for timeout
+      const analysisController = new AbortController();
+      const analysisTimeoutId = setTimeout(() => analysisController.abort(), 45000); // 45 second timeout
+
+      updateStageStatus(2, "active", 60);
+      console.log("📡 Waiting for analysis response...");
+
+      let analysisResponse: Response;
+
+      try {
+        analysisResponse = await fetch("/api/sentiment-inference", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${apiKey}`,
+          },
+          body: JSON.stringify({ key }),
+          signal: analysisController.signal,
+        });
+
+        clearTimeout(analysisTimeoutId);
+      } catch (fetchError) {
+        clearTimeout(analysisTimeoutId);
+        console.error("❌ Analysis fetch error:", fetchError);
+        if (fetchError instanceof Error && fetchError.name === "AbortError") {
+          throw new Error("Analysis request timed out after 45 seconds. Please try again with a shorter video.");
+        }
+        throw new Error(`Network error during analysis: ${fetchError instanceof Error ? fetchError.message : "Unknown error"}`);
+      }
+
+      updateStageStatus(2, "active", 80);
+
+      console.log("📊 Analysis response status:", analysisResponse.status); if (!analysisResponse.ok) {
+        const error = await analysisResponse.json();
+        console.error("❌ Analysis request failed:", {
+          status: analysisResponse.status,
+          statusText: analysisResponse.statusText,
+          error,
+        });
+
+        let errorMessage = error.error || error.message || "Analysis failed";
+
+        // Add more specific error messages based on status
+        if (analysisResponse.status === 401) {
+          errorMessage = "Authentication failed. Please refresh the page and try again.";
+        } else if (analysisResponse.status === 429) {
+          errorMessage = "Insufficient quota for analysis. Please check your account limits.";
+        } else if (analysisResponse.status === 503) {
+          errorMessage = "Analysis service temporarily unavailable. Please try again in a few minutes.";
+        } else if (analysisResponse.status === 504) {
+          errorMessage = "Analysis timed out. Please try again with a shorter video.";
+        }
+
+        throw new Error(errorMessage);
+      }
+
+      console.log("📋 Parsing analysis response...");
       const result = await analysisResponse.json();
       console.log("✅ Analysis completed:", result);
 
@@ -255,7 +505,29 @@ export function AutoUploadModal({
       }
     } catch (error) {
       console.error("❌ Upload/Analysis failed:", error);
-      setError(error instanceof Error ? error.message : "Upload failed");
+
+      // Log additional context for debugging
+      console.error("❌ Error context:", {
+        currentStage,
+        errorType: error instanceof Error ? error.constructor.name : typeof error,
+        errorMessage: error instanceof Error ? error.message : String(error),
+        stack: error instanceof Error ? error.stack : undefined,
+      });
+
+      let errorMessage = "Upload failed";
+
+      if (error instanceof Error) {
+        errorMessage = error.message;
+
+        // Handle specific error types
+        if (error.message.includes("timed out")) {
+          errorMessage = "Request timed out. Please check your internet connection and try again.";
+        } else if (error.message.includes("fetch")) {
+          errorMessage = "Network error. Please check your internet connection and try again.";
+        }
+      }
+
+      setError(errorMessage);
       setIsProcessing(false);
 
       setUploadStages((currentStages) => {
@@ -378,15 +650,14 @@ export function AutoUploadModal({
                 {uploadStages.map((stage, index) => (
                   <motion.div
                     key={stage.id}
-                    className={`rounded-lg border p-4 transition-all duration-300 ${
-                      stage.status === "active"
-                        ? "border-blue-300 bg-blue-50"
-                        : stage.status === "completed"
-                          ? "border-green-300 bg-green-50"
-                          : stage.status === "error"
-                            ? "border-red-300 bg-red-50"
-                            : "border-gray-200 bg-gray-50"
-                    }`}
+                    className={`rounded-lg border p-4 transition-all duration-300 ${stage.status === "active"
+                      ? "border-blue-300 bg-blue-50"
+                      : stage.status === "completed"
+                        ? "border-green-300 bg-green-50"
+                        : stage.status === "error"
+                          ? "border-red-300 bg-red-50"
+                          : "border-gray-200 bg-gray-50"
+                      }`}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
@@ -432,8 +703,8 @@ export function AutoUploadModal({
 
                     {(stage.status === "active" ||
                       stage.status === "completed") && (
-                      <Progress value={stage.progress} className="h-2" />
-                    )}
+                        <Progress value={stage.progress} className="h-2" />
+                      )}
                   </motion.div>
                 ))}
               </div>
@@ -494,6 +765,26 @@ export function AutoUploadModal({
                   >
                     Close
                   </Button>
+                ) : error ? (
+                  <>
+                    <Button
+                      variant="outline"
+                      onClick={onClose}
+                      className="flex-1"
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      onClick={() => {
+                        setError(null);
+                        startUpload();
+                      }}
+                      disabled={isProcessing}
+                      className="flex-1"
+                    >
+                      Retry Upload
+                    </Button>
+                  </>
                 ) : (
                   <Button
                     variant="outline"
