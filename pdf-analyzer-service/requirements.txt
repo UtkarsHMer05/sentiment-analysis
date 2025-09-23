@@ -1,0 +1,15 @@
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+pdfplumber==0.10.4
+openpyxl==3.1.2
+pandas
+transformers
+torch
+spacy
+wordcloud
+matplotlib
+Pillow
+numpy
+python-dotenv==1.0.0
+httpx==0.25.2

@@ -713,11 +713,10 @@ const DetailedSentimentAnalysisResults = ({
                         <motion.button
                           key={idx}
                           onClick={() => setCurrentFrame(idx)}
-                          className={`h-2 w-4 flex-shrink-0 rounded-full transition-colors ${
-                            idx === currentFrame
+                          className={`h-2 w-4 flex-shrink-0 rounded-full transition-colors ${idx === currentFrame
                               ? "bg-purple-500"
                               : "bg-white/20 hover:bg-white/40"
-                          }`}
+                            }`}
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.9 }}
                           title={`Frame ${idx + 1}`}
@@ -786,7 +785,8 @@ export function DashboardClient({ quota, user }: DashboardClientProps) {
 
   // FIXED: Calculate what user can afford with simplified quota system
   const canAffordSentiment = Math.floor(remaining / 2); // 2 points per analysis
-  const canAffordLive = Math.floor(remaining / 2); // 10 points per live detection
+  const canAffordLive = Math.floor(remaining / 2); // 2 points per live detection
+  const canAffordPdf = Math.floor(remaining / 2); // 2 points per PDF analysis
 
   // Fetch detailed quota status
   useEffect(() => {
@@ -999,11 +999,42 @@ export function DashboardClient({ quota, user }: DashboardClientProps) {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            // FIXED: Removed initial prop that was making it invisible
-            // OR alternatively, add opacity: 1 to animate prop if you want fade-in effect
+          // FIXED: Removed initial prop that was making it invisible
+          // OR alternatively, add opacity: 1 to animate prop if you want fade-in effect
           >
             <Camera className="h-4 w-4" />
             <span className="hidden sm:inline">Live Detection</span>
+          </motion.button>
+
+          {/* PDF Sentiment Analyzer Button */}
+          <motion.button
+            onClick={() => router.push("/pdf-analysis")}
+            className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-purple-500 to-indigo-500 px-4 py-2 text-sm font-medium text-white shadow-lg transition-all duration-200 sm:px-4"
+            whileHover={{
+              scale: 1.05,
+              y: -8, // Elevation up on hover
+              boxShadow: "0 15px 30px rgba(147, 51, 234, 0.5)",
+            }}
+            whileTap={{
+              scale: 0.98,
+              y: -2, // Slight elevation on tap
+            }}
+            animate={{
+              y: [0, -5, 0], // Gentle elevation animation
+              boxShadow: [
+                "0 5px 15px rgba(147, 51, 234, 0.3)",
+                "0 8px 20px rgba(147, 51, 234, 0.4)",
+                "0 5px 15px rgba(147, 51, 234, 0.3)",
+              ],
+            }}
+            transition={{
+              duration: 3.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <FileText className="h-4 w-4" />
+            <span className="hidden sm:inline">Document Analyzer</span>
           </motion.button>
 
           {/* Enhanced Refresh Quota Button */}
@@ -1118,7 +1149,7 @@ export function DashboardClient({ quota, user }: DashboardClientProps) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6, duration: 0.8 }}
       >
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-4">
           {/* Overall Quota */}
           <motion.div
             className="rounded-2xl border border-purple-500/30 bg-gradient-to-br from-purple-900/50 to-pink-900/50 p-4 backdrop-blur-xl"
@@ -1223,6 +1254,39 @@ export function DashboardClient({ quota, user }: DashboardClientProps) {
               </span>
               <p className="text-xs text-green-200">sessions available</p>
               {canAffordLive > 0 ? (
+                <CheckCircle className="mx-auto h-4 w-4 text-green-400" />
+              ) : (
+                <AlertCircle className="mx-auto h-4 w-4 text-red-400" />
+              )}
+            </div>
+          </motion.div>
+
+          {/* PDF Analysis - 2 quota points */}
+          <motion.div
+            className="rounded-2xl border border-purple-500/30 bg-gradient-to-br from-purple-900/50 to-indigo-900/50 p-4 backdrop-blur-xl"
+            whileHover={{
+              scale: 1.02,
+              boxShadow: "0 10px 30px rgba(147, 51, 234, 0.3)",
+            }}
+          >
+            <div className="mb-3 flex items-center gap-3">
+              <div className="rounded-lg bg-purple-500/20 p-2">
+                <FileText className="h-5 w-5 text-purple-400" />
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-white">
+                  PDF Analysis
+                </h3>
+                <p className="text-xs text-purple-200">2 quota each</p>
+              </div>
+            </div>
+
+            <div className="space-y-1 text-center">
+              <span className="text-lg font-bold text-white">
+                {canAffordPdf}
+              </span>
+              <p className="text-xs text-purple-200">files available</p>
+              {canAffordPdf > 0 ? (
                 <CheckCircle className="mx-auto h-4 w-4 text-green-400" />
               ) : (
                 <AlertCircle className="mx-auto h-4 w-4 text-red-400" />
@@ -1612,13 +1676,12 @@ export function DashboardClient({ quota, user }: DashboardClientProps) {
                 >
                   <motion.div
                     style={{ width: `${Math.min(usagePercentage, 100)}%` }}
-                    className={`h-full rounded-full transition-all duration-1000 ease-out ${
-                      usagePercentage > 90
+                    className={`h-full rounded-full transition-all duration-1000 ease-out ${usagePercentage > 90
                         ? "bg-gradient-to-r from-red-400 to-red-600"
                         : usagePercentage > 70
                           ? "bg-gradient-to-r from-yellow-400 to-orange-500"
                           : "bg-gradient-to-r from-purple-500 to-blue-500"
-                    }`}
+                      }`}
                     initial={{ width: 0 }}
                     animate={{ width: `${Math.min(usagePercentage, 100)}%` }}
                     transition={{ delay: 2, duration: 1.5, ease: "easeOut" }}
@@ -1643,6 +1706,10 @@ export function DashboardClient({ quota, user }: DashboardClientProps) {
                     <div className="flex justify-between">
                       <span>Live Detection (2 quota):</span>
                       <span className="text-green-300">{canAffordLive}x</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>PDF Analysis (2 quota):</span>
+                      <span className="text-green-300">{canAffordPdf}x</span>
                     </div>
                   </div>
                 </motion.div>

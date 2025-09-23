@@ -1,0 +1,98 @@
+INFO:     Will watch for changes in these directories: ['/Users/utkarshkhajuria/Desktop/sentiment-analysis/pdf-analyzer-service']
+INFO:     Uvicorn running on http://127.0.0.1:8001 (Press CTRL+C to quit)
+INFO:     Started reloader process [12294] using WatchFiles
+INFO:     Started server process [12374]
+INFO:     Waiting for application startup.
+INFO:main:Loading ML models...
+INFO:main:Loading sentiment classifier...
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at nlpaueb/legal-bert-base-uncased and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Device set to use cpu
+Failed to determine 'entailment' label id from the label2id mapping in the model config. Setting to -1. Define a descriptive label2id mapping in the model config to ensure correct outputs.
+INFO:main:✅ Sentiment classifier loaded successfully
+INFO:main:Loading summarizer...
+Device set to use cpu
+INFO:main:✅ Summarizer loaded successfully
+INFO:main:Loading spaCy model...
+INFO:main:✅ spaCy model loaded successfully
+INFO:main:Model loading completed
+INFO:     Application startup complete.
+INFO:     127.0.0.1:64916 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65006 - "GET /health HTTP/1.1" 200 OK
+INFO:watchfiles.main:4 changes detected
+WARNING:  WatchFiles detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:main:Shutting down PDF analyzer service...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [12374]
+INFO:     Started server process [15266]
+INFO:     Waiting for application startup.
+INFO:main:Loading ML models...
+INFO:watchfiles.main:3 changes detected
+INFO:main:Loading sentiment classifier...
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at nlpaueb/legal-bert-base-uncased and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Device set to use cpu
+Failed to determine 'entailment' label id from the label2id mapping in the model config. Setting to -1. Define a descriptive label2id mapping in the model config to ensure correct outputs.
+INFO:main:✅ Sentiment classifier loaded successfully
+INFO:main:Loading summarizer...
+Device set to use cpu
+INFO:main:✅ Summarizer loaded successfully
+INFO:main:Loading spaCy model...
+INFO:main:✅ spaCy model loaded successfully
+INFO:main:Model loading completed
+INFO:     Application startup complete.
+INFO:     127.0.0.1:65097 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65217 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65281 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65281 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65285 - "GET /health HTTP/1.1" 200 OK
+INFO:main:Processing file: generate exemplar pdf file for me.xlsx
+INFO:main:Performing individual page analysis...
+INFO:main:Performing combined analysis...
+INFO:main:✅ Analysis completed for generate exemplar pdf file for me.xlsx
+INFO:     127.0.0.1:65286 - "POST /analyze-document HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65307 - "GET /health HTTP/1.1" 200 OK
+INFO:main:Processing file: generate exemplar pdf file for me.xlsx
+INFO:main:Performing individual page analysis...
+INFO:main:Performing combined analysis...
+INFO:main:✅ Analysis completed for generate exemplar pdf file for me.xlsx
+INFO:     127.0.0.1:65308 - "POST /analyze-document HTTP/1.1" 200 OK
+INFO:watchfiles.main:1 change detected
+WARNING:  WatchFiles detected changes in 'main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:main:Shutting down PDF analyzer service...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [15266]
+Fatal Python error: init_sys_streams: can't initialize sys standard streams
+Python runtime state: core initialized
+OSError: [Errno 9] Bad file descriptor
+
+Current thread 0x000000020bc3a0c0 (most recent call first):
+  <no Python frame>
+INFO:watchfiles.main:1 change detected
+WARNING:  WatchFiles detected changes in 'main.py'. Reloading...
+Fatal Python error: init_sys_streams: can't initialize sys standard streams
+Python runtime state: core initialized
+OSError: [Errno 9] Bad file descriptor
+
+Current thread 0x000000020bc3a0c0 (most recent call first):
+  <no Python frame>
+INFO:watchfiles.main:1 change detected
+WARNING:  WatchFiles detected changes in 'main.py'. Reloading...
+Fatal Python error: init_sys_streams: can't initialize sys standard streams
+Python runtime state: core initialized
+OSError: [Errno 9] Bad file descriptor
+
+Current thread 0x000000020bc3a0c0 (most recent call first):
+  <no Python frame>
+INFO:watchfiles.main:1 change detected
+WARNING:  WatchFiles detected changes in 'main.py'. Reloading...
+Fatal Python error: init_sys_streams: can't initialize sys standard streams
+Python runtime state: core initialized
+OSError: [Errno 9] Bad file descriptor
+
+Current thread 0x000000020bc3a0c0 (most recent call first):
+  <no Python frame>

@@ -33,6 +33,9 @@ export async function GET(req: NextRequest) {
       live_detection: Math.floor(
         quotaStatus.remaining / QUOTA_COSTS.live_detection,
       ),
+      pdf_analysis: Math.floor(
+        quotaStatus.remaining / QUOTA_COSTS.pdf_analysis,
+      ),
     };
 
     console.log(`📈 Quota status calculated:`, {
@@ -47,7 +50,7 @@ export async function GET(req: NextRequest) {
       requestsUsed: quotaStatus.requestsUsed,
       remaining: quotaStatus.remaining,
       resetDate: quotaStatus.resetDate,
-      quotaCosts: QUOTA_COSTS, // Only 2 types now: sentiment_analysis (2) and live_detection (10)
+      quotaCosts: QUOTA_COSTS, // All 3 types: sentiment_analysis (2), live_detection (2), and pdf_analysis (2)
       canAfford,
       // Additional helpful information
       usagePercentage: Math.round(
@@ -64,6 +67,8 @@ export async function GET(req: NextRequest) {
           canAfford.sentiment_analysis > 0 ? "available" : "insufficient_quota",
         live_detection:
           canAfford.live_detection > 0 ? "available" : "insufficient_quota",
+        pdf_analysis:
+          canAfford.pdf_analysis > 0 ? "available" : "insufficient_quota",
       },
     };
 

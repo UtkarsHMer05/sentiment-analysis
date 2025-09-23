@@ -1,9 +1,10 @@
 import { db } from "~/server/db";
 
-// FIXED: Simplified quota types - only 2 types now
+// FIXED: Simplified quota types - now 3 types
 export const QUOTA_COSTS = {
   sentiment_analysis: 2, // Changed from 3 to 2
   live_detection: 2,
+  pdf_analysis: 2, // New PDF analysis type
 } as const;
 
 export type QuotaType = keyof typeof QUOTA_COSTS;
@@ -17,6 +18,7 @@ export interface QuotaStatus {
   canAfford: {
     sentiment_analysis: number;
     live_detection: number;
+    pdf_analysis: number;
   };
 }
 
@@ -152,6 +154,19 @@ export async function checkAndUpdateQuota(
 }
 
 /**
+ * Check and deduct quota in one operation
+ * @param userId - User ID
+ * @param quotaType - Type of quota to deduct
+ * @returns QuotaCheckResult
+ */
+export async function checkAndDeductQuota(
+  userId: string,
+  quotaType: QuotaType,
+): Promise<QuotaCheckResult> {
+  return checkAndUpdateQuota(userId, quotaType, true);
+}
+
+/**
  * Refund quota points to user
  * @param userId - User ID
  * @param quotaType - Type of quota to refund
@@ -229,6 +244,7 @@ export async function getQuotaStatus(
         remaining / QUOTA_COSTS.sentiment_analysis,
       ),
       live_detection: Math.floor(remaining / QUOTA_COSTS.live_detection),
+      pdf_analysis: Math.floor(remaining / QUOTA_COSTS.pdf_analysis),
     };
 
     console.log(
