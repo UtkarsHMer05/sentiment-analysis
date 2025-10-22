@@ -196,101 +196,282 @@ Traditional sentiment analysis tools only process text, missing crucial emotiona
 ## ⚡ Quick Start
 
 ### Prerequisites
-- Node.js 18+ and npm
-- Python 3.10+
-- AWS Account with SageMaker access
-- Stripe Account (for payments)
+- **Node.js 18+** and npm (v10.2.4+)
+- **Python 3.10+** with pip
+- **AWS Account** with SageMaker access (optional for MVP)
+- **Stripe Account** (for payments)
+- **Git**
 
-### 1-Minute Setup
-    Clone repository
-    
-    git clone https://github.com/yourusername/layers.git
-    cd layers
-    Install dependencies
-    
-    npm install
-    Setup environment
-    
-    cp .env.example .env.local
-    Edit .env.local with your credentials
-    
-    Setup database
-    
-    npm run db:push
-    Install Python dependencies
-    
-    npm run install-python-deps
-    Start development server
-    
-    npm run dev:full
-    
-Visit `http://localhost:3000` 🎉
+### 5-Minute Setup
+
+```bash
+# 1. Clone repository
+git clone https://github.com/UtkarsHMer05/sentiment-analysis.git
+cd sentiment-analysis
+
+# 2. Install dependencies
+npm install
+
+# 3. Setup environment
+cp .env.example .env.local
+# Edit .env.local with your credentials
+nano .env.local
+
+# 4. Generate authentication secret
+openssl rand -base64 32
+# Copy output to AUTH_SECRET in .env.local
+
+# 5. Setup database
+npm run db:push
+
+# 6. Setup PDF Analyzer Service
+cd pdf-analyzer-service
+chmod +x setup.sh
+./setup.sh
+cd ..
+
+# 7. Start development server
+npm run dev:full
+```
+
+Visit **http://localhost:3000** 🎉
+
+> **📖 Need detailed instructions?** See [SETUP_GUIDE.md](./SETUP_GUIDE.md) for comprehensive step-by-step instructions including AWS and Stripe configuration.
 
 ---
 
 ## 🔧 Installation
 
+> **📖 For complete step-by-step instructions, see [SETUP_GUIDE.md](./SETUP_GUIDE.md)**
+
 ### Detailed Setup Guide
 
-#### 1. Environment Configuration
-      .env.local
-      
-      DATABASE_URL="your-database-url"
-      NEXTAUTH_SECRET="your-nextauth-secret"
-      NEXTAUTH_URL="http://localhost:3000"
-      AWS Configuration
-      
-      AWS_ACCESS_KEY_ID="your-aws-access-key"
-      AWS_SECRET_ACCESS_KEY="your-aws-secret-key"
-      AWS_REGION="us-east-1"
-      AWS_INFERENCE_BUCKET="your-s3-bucket"
-      AWS_ENDPOINT_NAME="your-sagemaker-endpoint"
-      Stripe Configuration
-      
-      STRIPE_SECRET_KEY="your-stripe-secret-key"
-      STRIPE_WEBHOOK_SECRET="your-webhook-secret"
-      Optional: Custom Python Backend
-      
-      PYTHON_BACKEND_URL="http://localhost:8001"
+#### 1. Clone and Install Dependencies
 
-#### 2. Database Setup
-    Generate Prisma client
-    
-    npx prisma generate
-    Run migrations
-    
-    npx prisma db push
-    Optional: Seed database
-    
-    npx prisma db seed
+```bash
+# Clone the repository
+git clone https://github.com/UtkarsHMer05/sentiment-analysis.git
+cd sentiment-analysis
 
-#### 3. AWS SageMaker Setup
-    Deploy ML model to SageMaker
-    
-    cd src/server/python_backend
-    python deploy_model.py
+# Install Node.js dependencies
+npm install
+```
+
+#### 2. Environment Configuration
+
+```bash
+# Copy example environment file
+cp .env.example .env.local
+
+# Generate authentication secret
+openssl rand -base64 32
+
+# Edit .env.local with your credentials
+nano .env.local
+```
+
+**Required environment variables:**
+
+```bash
+# Database (SQLite for development)
+DATABASE_URL="file:./dev.db"
+
+# Authentication (generate with: openssl rand -base64 32)
+AUTH_SECRET="your-generated-secret-here"
+NEXTAUTH_URL="http://localhost:3000"
+
+# AWS Configuration
+AWS_REGION="us-east-1"
+AWS_ACCESS_KEY_ID="your_aws_access_key_id"
+AWS_SECRET_ACCESS_KEY="your_aws_secret_access_key"
+AWS_INFERENCE_BUCKET="your-s3-bucket-name"
+AWS_ENDPOINT_NAME="your-sagemaker-endpoint-name"
+
+# Stripe Configuration (use test keys for development)
+STRIPE_PUBLIC_KEY="pk_test_..."
+STRIPE_SECRET_KEY="sk_test_..."
+STRIPE_WEBHOOK_SECRET="whsec_..."
+
+# Optional: Python Backend URL
+PYTHON_BACKEND_URL="http://localhost:8001"
+```
+
+#### 3. Database Setup
+
+```bash
+# Initialize database and apply schema
+npm run db:push
+
+# (Optional) Open Prisma Studio to view database
+npm run db:studio
+```
 
 #### 4. Python Backend Setup
-    Install Python dependencies
-    
-    cd src/server/python_backend
-    pip install -r requirements.txt
-   Test ML pipeline
-    
-    python test_inference.py
+
+```bash
+# Navigate to PDF analyzer service
+cd pdf-analyzer-service
+
+# Make setup script executable and run it
+chmod +x setup.sh
+./setup.sh
+
+# Activate virtual environment
+source venv/bin/activate
+
+# Test the service (optional)
+python main.py
+
+# Return to project root
+cd ..
+```
+
+#### 5. AWS Setup (Optional for MVP)
+
+**Create S3 Bucket:**
+```bash
+aws s3 mb s3://your-sentiment-analysis-bucket --region us-east-1
+```
+
+**Or use AWS Console:**
+1. Go to AWS S3 Console
+2. Create bucket: `your-sentiment-analysis-bucket`
+3. Region: `us-east-1`
+4. Update `AWS_INFERENCE_BUCKET` in `.env.local`
+
+#### 6. Stripe Setup
+
+1. Create account at [Stripe Dashboard](https://dashboard.stripe.com/)
+2. Get API keys from **Developers** → **API keys**
+3. Create products with pricing plans
+4. Set up webhooks:
+   ```bash
+   stripe listen --forward-to localhost:3000/api/stripe/webhook
+   ```
+5. Update `.env.local` with Stripe credentials
 
 ---
 
 ## ⚙️ Configuration
 
+### Running the Application
+
+#### Development Mode
+
+**Option 1: Full Stack (Recommended)**
+```bash
+# Starts Next.js app + WebSocket server
+npm run dev:full
+```
+
+**Option 2: Individual Services**
+```bash
+# Terminal 1: Next.js App
+npm run dev
+
+# Terminal 2: WebSocket Server
+npm run websocket
+
+# Terminal 3: PDF Analyzer Service
+cd pdf-analyzer-service
+source venv/bin/activate
+python main.py
+
+# Terminal 4: Stripe Webhooks (if testing payments)
+stripe listen --forward-to localhost:3000/api/stripe/webhook
+```
+
+#### Production Mode
+
+```bash
+# Build the application
+npm run build
+
+# Start production server
+npm run start
+```
+
+### Available Scripts
+
+```bash
+# Development
+npm run dev              # Start Next.js development server
+npm run dev:full         # Start Next.js + WebSocket server
+npm run websocket        # Start WebSocket server only
+npm run websocket:dev    # Start WebSocket with auto-reload
+
+# Database
+npm run db:push          # Push schema to database (dev)
+npm run db:generate      # Generate Prisma client + migrations
+npm run db:migrate       # Run migrations (production)
+npm run db:studio        # Open Prisma Studio UI
+
+# Code Quality
+npm run lint             # Check for linting errors
+npm run lint:fix         # Fix linting errors automatically
+npm run typecheck        # Check TypeScript types
+npm run format:check     # Check code formatting
+npm run format:write     # Format code with Prettier
+
+# Build & Production
+npm run build            # Build for production
+npm run start            # Start production server
+npm run preview          # Build and preview production
+
+# Testing
+npm test                 # Run tests
+npm run check            # Run lint + typecheck
+```
+
+### Access Points
+
+Once running, access the application at:
+
+- **Main App**: http://localhost:3000
+- **PDF Analyzer Service**: http://localhost:8001
+- **WebSocket Server**: ws://localhost:8080
+- **Database Studio**: http://localhost:5555 (when running `db:studio`)
+
 ### Development vs Production
 
 #### Development Mode
-    npm run dev:full # Starts both Next.js and WebSocket server
+```bash
+npm run dev:full # Starts both Next.js and WebSocket server
+```
 
 #### Production Build
-    npm run build
-    npm run start
+```bash
+npm run build
+npm run start
+```
+
+### Verification & Testing
+
+After starting the application, verify everything works:
+
+#### 1. Health Checks
+```bash
+# Test Next.js app
+curl http://localhost:3000/api/health
+
+# Test PDF analyzer service  
+curl http://localhost:8001/health
+```
+
+#### 2. Create Test Account
+1. Navigate to http://localhost:3000
+2. Click **Sign Up**
+3. Create account with:
+   - Name: Test User
+   - Email: test@example.com
+   - Password: SecurePassword123!
+
+#### 3. Test Features
+- ✅ Dashboard loads correctly
+- ✅ Generate API key
+- ✅ Upload video for analysis (if AWS configured)
+- ✅ PDF sentiment analysis (if service running)
+- ✅ Live emotion detection (if webcam available)
 
 ### Feature Flags
     // src/config/features.ts
