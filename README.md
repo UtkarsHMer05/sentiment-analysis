@@ -1,4 +1,4 @@
-# Sentiment Analysis Platform# 🎭 Sentiment Analysis Platform# 🎭 Sentiment Analysis Platform
+# 🎭 Sentiment Analysis Platform# 🎭 Sentiment Analysis Platform
 
 
 
@@ -6,83 +6,167 @@
 
 
 
-<p align="center"><div align="center"><div align="center">
+<p align="center">> A production-ready multimodal sentiment analysis SaaS that combines video, audio, and text signals to surface real-time emotion and sentiment insights.
 
-  <a href="https://nextjs.org/"><img alt="Next.js" src="https://img.shields.io/badge/Next.js-15.0-black?logo=next.js" /></a>
+  <a href="https://nextjs.org/"><img alt="Next.js" src="https://img.shields.io/badge/Next.js-15.0-black?style=for-the-badge&logo=next.js" /></a>
 
-  <a href="https://www.typescriptlang.org/"><img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5.5-blue?logo=typescript" /></a>
+  <a href="https://www.typescriptlang.org/"><img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5.5-blue?style=for-the-badge&logo=typescript" /></a>
 
-  <a href="https://fastapi.tiangolo.com/"><img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-0.111-teal?logo=fastapi" /></a>
+  <a href="https://fastapi.tiangolo.com/"><img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-0.111-teal?style=for-the-badge&logo=fastapi" /></a>
 
-  <a href="https://aws.amazon.com/sagemaker/"><img alt="AWS SageMaker" src="https://img.shields.io/badge/AWS-SageMaker-orange?logo=amazon-aws" /></a>![Platform Banner](https://img.shields.io/badge/Sentiment_Analysis-AI_Platform-blueviolet?style=for-the-badge&logo=brain&logoColor=white)![Platform Banner](https://img.shields.io/badge/Sentiment_Analysis-AI_Platform-blueviolet?style=for-the-badge&logo=brain&logoColor=white)
+  <a href="https://aws.amazon.com/sagemaker/"><img alt="AWS SageMaker" src="https://img.shields.io/badge/AWS-SageMaker-orange?style=for-the-badge&logo=amazon-aws" /></a><p align="center"><div align="center"><div align="center">
 
-  <a href="https://stripe.com/"><img alt="Stripe" src="https://img.shields.io/badge/Stripe-Payments-6772e5?logo=stripe" /></a>
+  <a href="https://stripe.com/"><img alt="Stripe" src="https://img.shields.io/badge/Stripe-Payments-6772e5?style=for-the-badge&logo=stripe" /></a>
 
-  <a href="https://opensource.org/licenses/MIT"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-success" /></a>
+  <a href="https://opensource.org/licenses/MIT"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-success?style=for-the-badge" /></a>  <a href="https://nextjs.org/"><img alt="Next.js" src="https://img.shields.io/badge/Next.js-15.0-black?logo=next.js" /></a>
 
 </p>
 
-[![Next.js](https://img.shields.io/badge/Next.js-15.0.1-black?style=flat-square&logo=next.js)](https://nextjs.org/)[![Next.js](https://img.shields.io/badge/Next.js-15.0.1-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+  <a href="https://www.typescriptlang.org/"><img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5.5-blue?logo=typescript" /></a>
 
-[Report a bug](https://github.com/UtkarsHMer05/sentiment-analysis/issues/new?template=bug_report.md) ·
+<p align="center">
 
-[Request a feature](https://github.com/UtkarsHMer05/sentiment-analysis/issues/new?template=feature_request.md) ·[![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)[![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+  <a href="#-quick-start"><strong>🚀 Quick Start</strong></a> •  <a href="https://fastapi.tiangolo.com/"><img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-0.111-teal?logo=fastapi" /></a>
 
-[View roadmap](#roadmap)
+  <a href="#-table-of-contents"><strong>📖 Docs</strong></a> •
 
-[![Python](https://img.shields.io/badge/Python-3.10+-green?style=flat-square&logo=python)](https://www.python.org/)[![Python](https://img.shields.io/badge/Python-3.10+-green?style=flat-square&logo=python)](https://www.python.org/)
+  <a href="https://github.com/UtkarsHMer05/sentiment-analysis/issues/new?template=bug_report.md"><strong>🐛 Report Bug</strong></a> •  <a href="https://aws.amazon.com/sagemaker/"><img alt="AWS SageMaker" src="https://img.shields.io/badge/AWS-SageMaker-orange?logo=amazon-aws" /></a>![Platform Banner](https://img.shields.io/badge/Sentiment_Analysis-AI_Platform-blueviolet?style=for-the-badge&logo=brain&logoColor=white)![Platform Banner](https://img.shields.io/badge/Sentiment_Analysis-AI_Platform-blueviolet?style=for-the-badge&logo=brain&logoColor=white)
+
+  <a href="https://github.com/UtkarsHMer05/sentiment-analysis/issues/new?template=feature_request.md"><strong>💡 Request Feature</strong></a> •
+
+  <a href="#️-roadmap"><strong>🗺️ Roadmap</strong></a>  <a href="https://stripe.com/"><img alt="Stripe" src="https://img.shields.io/badge/Stripe-Payments-6772e5?logo=stripe" /></a>
+
+</p>
+
+  <a href="https://opensource.org/licenses/MIT"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-success" /></a>
 
 ---
 
-[![AWS](https://img.shields.io/badge/AWS-SageMaker-orange?style=flat-square&logo=amazon-aws)](https://aws.amazon.com/sagemaker/)[![AWS](https://img.shields.io/badge/AWS-SageMaker-orange?style=flat-square&logo=amazon-aws)](https://aws.amazon.com/sagemaker/)
+</p>
 
-## Table of Contents
+## 📸 Platform Screenshots
+
+[![Next.js](https://img.shields.io/badge/Next.js-15.0.1-black?style=flat-square&logo=next.js)](https://nextjs.org/)[![Next.js](https://img.shields.io/badge/Next.js-15.0.1-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+
+<details>
+
+<summary><b>🏠 Landing Page</b> (Click to expand)</summary>[Report a bug](https://github.com/UtkarsHMer05/sentiment-analysis/issues/new?template=bug_report.md) ·
+
+
+
+![Landing Page](https://github.com/user-attachments/assets/b1601972-3300-4629-b844-dd380b1fcff6)[Request a feature](https://github.com/UtkarsHMer05/sentiment-analysis/issues/new?template=feature_request.md) ·[![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)[![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+
+</details>
+
+[View roadmap](#roadmap)
+
+<details>
+
+<summary><b>🔐 Authentication</b> (Click to expand)</summary>[![Python](https://img.shields.io/badge/Python-3.10+-green?style=flat-square&logo=python)](https://www.python.org/)[![Python](https://img.shields.io/badge/Python-3.10+-green?style=flat-square&logo=python)](https://www.python.org/)
+
+
+
+![Login](https://github.com/user-attachments/assets/acd41eed-066d-4966-a7e0-0f8af20b52c3)---
+
+![Signup](https://github.com/user-attachments/assets/bc2143fe-476c-4405-82d8-b92b4acad322)
+
+</details>[![AWS](https://img.shields.io/badge/AWS-SageMaker-orange?style=flat-square&logo=amazon-aws)](https://aws.amazon.com/sagemaker/)[![AWS](https://img.shields.io/badge/AWS-SageMaker-orange?style=flat-square&logo=amazon-aws)](https://aws.amazon.com/sagemaker/)
+
+
+
+<details>## Table of Contents
+
+<summary><b>📊 Dashboard & Analysis</b> (Click to expand)</summary>
 
 [![Stripe](https://img.shields.io/badge/Stripe-Payments-6772e5?style=flat-square&logo=stripe)](https://stripe.com/)[![Stripe](https://img.shields.io/badge/Stripe-Payments-6772e5?style=flat-square&logo=stripe)](https://stripe.com/)
 
-- [Overview](#overview)
+![Dashboard](https://github.com/user-attachments/assets/6338cf07-e3ca-4a74-b964-1559dad0d2a9)
 
-- [Highlights](#highlights)[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+![Analysis Results](https://github.com/user-attachments/assets/f0ecda1e-39d7-4ed2-a635-efcf66348456)- [Overview](#overview)
 
-- [Architecture](#architecture)
+![Detailed Results](https://github.com/user-attachments/assets/d4b293ad-2a63-4c15-b75e-536e1e52b650)
 
-- [Repository Layout](#repository-layout)
+![Detailed Results 2](https://github.com/user-attachments/assets/15fa9613-ef52-4b9b-ace5-57aa78db54bb)- [Highlights](#highlights)[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+
+![Detailed Results 3](https://github.com/user-attachments/assets/3ede5f58-c754-4fec-a9d9-39cc610acb75)
+
+</details>- [Architecture](#architecture)
+
+
+
+<details>- [Repository Layout](#repository-layout)
+
+<summary><b>📹 Live Detection & Results</b> (Click to expand)</summary>
 
 - [Quick Start](#quick-start)
 
-- [Environment Variables](#environment-variables)**Real-time multimodal AI sentiment analysis platform combining video, audio, and text processing with live emotion detection.****Real-time multimodal AI sentiment analysis platform combining video, audio, and text processing with live emotion detection.**
+![Live Detection](https://github.com/user-attachments/assets/559e0407-9d7b-4061-a053-273755f1ba36)
 
-- [Services](#services)
+![Live Results](https://github.com/user-attachments/assets/576e24f0-1671-4bc9-a1e3-8efe91a18930)- [Environment Variables](#environment-variables)**Real-time multimodal AI sentiment analysis platform combining video, audio, and text processing with live emotion detection.****Real-time multimodal AI sentiment analysis platform combining video, audio, and text processing with live emotion detection.**
 
-- [Feature Walkthrough](#feature-walkthrough)
+![Emotion Analysis 1](https://github.com/user-attachments/assets/d27ac8cc-aa95-4cff-bf90-462050149621)
 
-- [API Overview](#api-overview)
+![Emotion Analysis 2](https://github.com/user-attachments/assets/a3973568-c6ee-4ff3-a58b-bfc0a26b03da)- [Services](#services)
 
-- [Deployment](#deployment)[🚀 Quick Start](#-quick-start) • [📖 Documentation](#-table-of-contents) • [🐛 Report Bug](https://github.com/UtkarsHMer05/sentiment-analysis/issues) • [💡 Request Feature](https://github.com/UtkarsHMer05/sentiment-analysis/issues)[🚀 Quick Start](#-quick-start) • [📖 Documentation](#-table-of-contents) • [🐛 Report Bug](https://github.com/UtkarsHMer05/sentiment-analysis/issues) • [💡 Request Feature](https://github.com/UtkarsHMer05/sentiment-analysis/issues)
+![Emotion Analysis 3](https://github.com/user-attachments/assets/bb1e2d0f-29b9-4b1b-be85-5f6607cf06bd)
 
-- [Testing & Quality](#testing--quality)
-
-- [Troubleshooting](#troubleshooting)
-
-- [Roadmap](#roadmap)
-
-- [Contributing](#contributing)</div></div>
-
-- [License](#license)
-
-- [Support](#support)
+</details>- [Feature Walkthrough](#feature-walkthrough)
 
 
 
-------**MAIN LANDING**
+---- [API Overview](#api-overview)
 
 
 
-## Overview
+## 📋 Table of Contents- [Deployment](#deployment)[🚀 Quick Start](#-quick-start) • [📖 Documentation](#-table-of-contents) • [🐛 Report Bug](https://github.com/UtkarsHMer05/sentiment-analysis/issues) • [💡 Request Feature](https://github.com/UtkarsHMer05/sentiment-analysis/issues)[🚀 Quick Start](#-quick-start) • [📖 Documentation](#-table-of-contents) • [🐛 Report Bug](https://github.com/UtkarsHMer05/sentiment-analysis/issues) • [💡 Request Feature](https://github.com/UtkarsHMer05/sentiment-analysis/issues)
 
 
 
-The Sentiment Analysis Platform delivers real-time emotion and sentiment intelligence for recorded and live video, audio, and documents. Built on a Next.js 15 frontend with a FastAPI microservice and AWS SageMaker-backed inference, the platform supports SaaS monetisation via Stripe, quota-based API access, and a fully responsive dashboard experience.## 📸 Platform Screenshots![Screenshot 2025-06-04 at 1 23 46 PM](https://github.com/user-attachments/assets/b1601972-3300-4629-b844-dd380b1fcff6)
+- [🌟 Overview](#-overview)- [Testing & Quality](#testing--quality)
+
+- [✨ Highlights](#-highlights)
+
+- [🏗️ Architecture](#️-architecture)- [Troubleshooting](#troubleshooting)
+
+- [📂 Repository Layout](#-repository-layout)
+
+- [⚡ Quick Start](#-quick-start)- [Roadmap](#roadmap)
+
+- [⚙️ Environment Variables](#️-environment-variables)
+
+- [🛠️ Services](#️-services)- [Contributing](#contributing)</div></div>
+
+- [📱 Feature Walkthrough](#-feature-walkthrough)
+
+- [🔌 API Overview](#-api-overview)- [License](#license)
+
+- [🚀 Deployment](#-deployment)
+
+- [🧪 Testing & Quality](#-testing--quality)- [Support](#support)
+
+- [🤕 Troubleshooting](#-troubleshooting)
+
+- [🛣️ Roadmap](#️-roadmap)
+
+- [🤝 Contributing](#-contributing)
+
+- [📄 License](#-license)------**MAIN LANDING**
+
+- [📞 Support](#-support)
+
+- [📚 Bonus Resources](#-bonus-resources)
+
+
+
+---## Overview
+
+
+
+## 🌟 Overview
+
+
+
+The **Sentiment Analysis Platform** delivers real-time emotion and sentiment intelligence for recorded and live video, audio, and documents. Built on a Next.js 15 frontend with a FastAPI microservice and AWS SageMaker-backed inference, the platform supports SaaS monetisation via Stripe, quota-based API access, and a fully responsive dashboard experience.The Sentiment Analysis Platform delivers real-time emotion and sentiment intelligence for recorded and live video, audio, and documents. Built on a Next.js 15 frontend with a FastAPI microservice and AWS SageMaker-backed inference, the platform supports SaaS monetisation via Stripe, quota-based API access, and a fully responsive dashboard experience.## 📸 Platform Screenshots![Screenshot 2025-06-04 at 1 23 46 PM](https://github.com/user-attachments/assets/b1601972-3300-4629-b844-dd380b1fcff6)
 
 
 
@@ -90,371 +174,744 @@ This repository houses:
 
 
 
+-   **Next.js 15 + TypeScript** marketing site, authenticated dashboard, and API routes.This repository houses:
+
+-   **WebSocket live analysis server** that streams inference updates with JWT-authenticated connections.
+
+-   **Python FastAPI microservice** for PDF and spreadsheet sentiment processing.
+
+-   **Prisma ORM** schema and migrations for user, quota, and subscription data.
+
 - **Next.js 15 + TypeScript** marketing site, authenticated dashboard, and API routes.<details>---
-
-- **WebSocket live analysis server** that streams inference updates with JWT-authenticated connections.
-
-- **Python FastAPI microservice** for PDF and spreadsheet sentiment processing.<summary><b>🏠 Landing Page</b> (Click to expand)</summary>**LOGIN AND SIGNUP PAGE**
-
-- **Prisma ORM** schema and migrations for user, quota, and subscription data.
-
-
 
 The system is production-ready, with environment validation, infrastructure guidance, and deployment recipes.
 
-![Landing Page](https://github.com/user-attachments/assets/b1601972-3300-4629-b844-dd380b1fcff6)![Screenshot 2025-06-04 at 1 25 07 PM](https://github.com/user-attachments/assets/acd41eed-066d-4966-a7e0-0f8af20b52c3)
+- **WebSocket live analysis server** that streams inference updates with JWT-authenticated connections.
+
+---
+
+- **Python FastAPI microservice** for PDF and spreadsheet sentiment processing.<summary><b>🏠 Landing Page</b> (Click to expand)</summary>**LOGIN AND SIGNUP PAGE**
+
+## ✨ Highlights
+
+- **Prisma ORM** schema and migrations for user, quota, and subscription data.
+
+-   **Multimodal inference**: Analyse facial expressions, voice tone, and transcribed text simultaneously.
+
+-   **Live emotion detection**: WebRTC-powered webcam capture with streaming updates via WebSockets.
+
+-   **Document intelligence**: Upload PDFs or Excel workbooks and receive per-page sentiment, entities, and summaries thanks to the FastAPI microservice.
+
+-   **Quota + API keys**: Built-in API key provisioning and quota enforcement for SaaS plans.The system is production-ready, with environment validation, infrastructure guidance, and deployment recipes.
+
+-   **Stripe subscription billing**: Checkout sessions, webhooks, and seat activation handled end-to-end.
+
+-   **AWS SageMaker integration**: Invoke hosted endpoints for video sentiment models with presigned S3 uploads.![Landing Page](https://github.com/user-attachments/assets/b1601972-3300-4629-b844-dd380b1fcff6)![Screenshot 2025-06-04 at 1 25 07 PM](https://github.com/user-attachments/assets/acd41eed-066d-4966-a7e0-0f8af20b52c3)
+
+-   **Developer ergonomics**: Environment validation, typed server components, Tailwind UI, and curated quick-reference docs.
+
+---
 
 ---
 
 ![Screenshot 2025-06-04 at 1 25 14 PM](https://github.com/user-attachments/assets/bc2143fe-476c-4405-82d8-b92b4acad322)
 
+## 🏗️ Architecture
+
 ## Highlights
-
-</details>
-
-- **Multimodal inference**: Analyse facial expressions, voice tone, and transcribed text simultaneously.
-
-- **Live emotion detection**: WebRTC-powered webcam capture with streaming updates via WebSockets.---
-
-- **Document intelligence**: Upload PDFs or Excel workbooks and receive per-page sentiment, entities, and summaries thanks to the FastAPI microservice.
-
-- **Quota + API keys**: Built-in API key provisioning and quota enforcement for SaaS plans.<details>**MAIN DASHBOARD WITH WORKING EXAMPLE**
-
-- **Stripe subscription billing**: Checkout sessions, webhooks, and seat activation handled end-to-end.
-
-- **AWS SageMaker integration**: Invoke hosted endpoints for video sentiment models with presigned S3 uploads.<summary><b>🔐 Authentication</b></summary>
-
-- **Developer ergonomics**: Environment validation, typed server components, Tailwind UI, and curated quick-reference docs.
-
-![Screenshot 2025-06-04 at 1 25 37 PM](https://github.com/user-attachments/assets/6338cf07-e3ca-4a74-b964-1559dad0d2a9)
-
----
-
-![Login](https://github.com/user-attachments/assets/acd41eed-066d-4966-a7e0-0f8af20b52c3)![Screenshot 2025-06-04 at 1 28 12 PM](https://github.com/user-attachments/assets/f0ecda1e-39d7-4ed2-a635-efcf66348456)
-
-## Architecture
-
-![Signup](https://github.com/user-attachments/assets/bc2143fe-476c-4405-82d8-b92b4acad322)![Screenshot 2025-06-04 at 1 52 29 PM](https://github.com/user-attachments/assets/d4b293ad-2a63-4c15-b75e-536e1e52b650)
 
 ```mermaid
 
-flowchart LR![Screenshot 2025-06-04 at 1 53 00 PM](https://github.com/user-attachments/assets/15fa9613-ef52-4b9b-ace5-57aa78db54bb)
+flowchart LR</details>
 
   User[User Browser] -->|HTTPS| Next[Next.js App]
 
-  Next -- ORM --> Prisma[(Prisma + Database)]</details>![Screenshot 2025-06-04 at 1 53 26 PM](https://github.com/user-attachments/assets/3ede5f58-c754-4fec-a9d9-39cc610acb75)
+  Next -- ORM --> Prisma[(Prisma + Database)]- **Multimodal inference**: Analyse facial expressions, voice tone, and transcribed text simultaneously.
 
   Next -->|REST| Stripe[(Stripe)]
 
-  Next -->|REST| AWS[(AWS S3 & SageMaker)]
+  Next -->|REST| AWS[(AWS S3 & SageMaker)]- **Live emotion detection**: WebRTC-powered webcam capture with streaming updates via WebSockets.---
 
   Next -->|REST| PDFService[(FastAPI PDF Analyzer)]
 
-  Next -->|WS| LiveWS[(Live Analysis WebSocket)]<details>
+  Next -->|WS| LiveWS[(Live Analysis WebSocket)]- **Document intelligence**: Upload PDFs or Excel workbooks and receive per-page sentiment, entities, and summaries thanks to the FastAPI microservice.
 
   PDFService -->|Models| HF[Transformers & spaCy]
 
-```<summary><b>📊 Dashboard & Analysis</b></summary>---
+- **Quota + API keys**: Built-in API key provisioning and quota enforcement for SaaS plans.<details>**MAIN DASHBOARD WITH WORKING EXAMPLE**
 
+  style User fill:#e1f5ff,stroke:#333
 
+  style Next fill:#ffe1e1,stroke:#333- **Stripe subscription billing**: Checkout sessions, webhooks, and seat activation handled end-to-end.
 
-### Core Services
+  style PDFService fill:#e1ffe1,stroke:#333
 
-
-
-| Service | Port | Description |![Dashboard](https://github.com/user-attachments/assets/6338cf07-e3ca-4a74-b964-1559dad0d2a9)**LIVE DETECTION PAGE AND ANALYSIS RESULTS**
-
-| --- | --- | --- |
-
-| Next.js frontend + API | `3000` | Marketing site, dashboard, REST routes, NextAuth, Prisma. |![Analysis Results](https://github.com/user-attachments/assets/f0ecda1e-39d7-4ed2-a635-efcf66348456)
-
-| WebSocket live analysis | `8080` | Streams live emotion analysis updates (JWT protected). |
-
-| FastAPI PDF analyzer | `8001` | Handles PDF/Excel extraction, summarisation, and sentiment classification. |![Detailed Results](https://github.com/user-attachments/assets/d4b293ad-2a63-4c15-b75e-536e1e52b650)![Screenshot 2025-06-04 at 1 54 22 PM](https://github.com/user-attachments/assets/559e0407-9d7b-4061-a053-273755f1ba36)
-
-| Stripe Webhooks (ngrok recommended) | `3000`/`8787` | Receives subscription lifecycle events via `/api/stripe/webhooks`. |
-
-![Screenshot 2025-06-04 at 1 59 13 PM](https://github.com/user-attachments/assets/576e24f0-1671-4bc9-a1e3-8efe91a18930)
-
----
-
-</details>![Screenshot 2025-06-04 at 1 59 28 PM](https://github.com/user-attachments/assets/d27ac8cc-aa95-4cff-bf90-462050149621)
-
-## Repository Layout
-
-![Screenshot 2025-06-04 at 1 59 32 PM](https://github.com/user-attachments/assets/a3973568-c6ee-4ff3-a58b-bfc0a26b03da)
-
-```text
-
-sentiment-analysis/<details>![Screenshot 2025-06-04 at 1 59 38 PM](https://github.com/user-attachments/assets/bb1e2d0f-29b9-4b1b-be85-5f6607cf06bd)
-
-├── src/
-
-│   ├── app/                # Next.js routes, layout, pages, API endpoints<summary><b>📹 Live Detection</b></summary>
-
-│   ├── components/         # Reusable UI primitives and feature components
-
-│   ├── lib/                # Stripe helper, quota manager, AWS utilities
-
-│   ├── server/
-
-│   │   ├── auth/           # NextAuth configuration![Live Detection](https://github.com/user-attachments/assets/559e0407-9d7b-4061-a053-273755f1ba36)---
-
-│   │   ├── db.ts           # Prisma client
-
-│   │   └── websocket/      # Live analysis WebSocket server (TypeScript)![Live Results](https://github.com/user-attachments/assets/576e24f0-1671-4bc9-a1e3-8efe91a18930)
-
-│   └── scripts/            # Utility scripts (websocket launcher)
-
-├── prisma/                 # Prisma schema and migrations![Emotion Analysis](https://github.com/user-attachments/assets/d27ac8cc-aa95-4cff-bf90-462050149621)## 📋 Table of Contents
-
-├── pdf-analyzer-service/   # FastAPI microservice for PDF & Excel
-
-├── public/                 # Static assets
-
-├── styles/                 # Tailwind global styles
-
-├── QUICK_REFERENCE.md      # Developer command cheat sheet</details>- [🌟 Overview](#-overview)
-
-├── INSTALLATION_CHECKLIST.md
-
-├── .env.example            # Environment variable template- [✨ Key Features](#-key-features)
-
-└── README.md               # You are here
-
-```---- [🛠️ Tech Stack](#️-tech-stack)
-
-
-
----- [🏗️ Architecture](#️-architecture)
-
-
-
-## Quick Start## 📋 Table of Contents- [⚡ Quick Start](#-quick-start)
-
-
-
-### Prerequisites- [🔧 Installation](#-installation)
-
-
-
-- Node.js **18.18+** and npm **10+** *(Next.js 15 requirement)*- [🌟 Overview](#-overview)- [⚙️ Configuration](#️-configuration)
-
-- Python **3.10+** with `uvicorn` (for the FastAPI service)
-
-- Stripe account (test keys sufficient) for billing workflows- [✨ Key Features](#-key-features)- [📱 Usage](#-usage)
-
-- AWS credentials with access to **S3** and **SageMaker Runtime**
-
-- (Optional) PostgreSQL for production deployments. SQLite is used by default for local development.- [🛠️ Tech Stack](#️-tech-stack)- [🔌 API Documentation](#-api-documentation)
-
-
-
-### 1. Clone & Install- [🏗️ System Architecture](#️-system-architecture)- [🎯 Features Deep Dive](#-features-deep-dive)
-
-
-
-```bash- [📦 Prerequisites](#-prerequisites)- [🧪 Testing](#-testing)
-
-git clone https://github.com/UtkarsHMer05/sentiment-analysis.git
-
-cd sentiment-analysis- [⚡ Quick Start](#-quick-start)- [🚀 Deployment](#-deployment)
-
-npm install
-
-```- [🔧 Detailed Installation](#-detailed-installation)- [🤝 Contributing](#-contributing)
-
-
-
-### 2. Configure Environment- [⚙️ Configuration Guide](#️-configuration-guide)- [🛣️ Roadmap](#️-roadmap)
-
-
-
-```bash- [🚀 Running the Application](#-running-the-application)- [📄 License](#-license)
-
-cp .env.example .env.local
-
-# populate secrets for Next.js- [📱 Usage Guide](#-usage-guide)
-
-
-
-cd pdf-analyzer-service- [🔌 API Reference](#-api-reference)---
-
-cp .env.example .env             # optional, only if you extend the service
-
-```- [📂 Project Structure](#-project-structure)
-
-
-
-### 3. Prepare the Database- [🎯 Feature Deep Dive](#-feature-deep-dive)## 🌟 Overview
-
-
-
-```bash- [🔒 Security & Privacy](#-security--privacy)
-
-# Generate Prisma client and run development migrations
-
-npx prisma generate- [🚢 Deployment](#-deployment)**Layers** is a cutting-edge multimodal AI platform that revolutionizes video sentiment analysis by combining text, audio, and visual processing in real-time. Built with modern web technologies and powered by AWS SageMaker, it delivers enterprise-grade sentiment analysis with an intuitive user experience.
-
-npx prisma migrate dev
-
-- [🧪 Testing](#-testing)
-
-# Explore data (optional)
-
-npx prisma studio- [🤝 Contributing](#-contributing)### 🎯 Problem We Solve
+  style AWS fill:#f0e1ff,stroke:#333- **AWS SageMaker integration**: Invoke hosted endpoints for video sentiment models with presigned S3 uploads.<summary><b>🔐 Authentication</b></summary>
 
 ```
 
+- **Developer ergonomics**: Environment validation, typed server components, Tailwind UI, and curated quick-reference docs.
+
+### Core Services
+
+![Screenshot 2025-06-04 at 1 25 37 PM](https://github.com/user-attachments/assets/6338cf07-e3ca-4a74-b964-1559dad0d2a9)
+
+| Service | Port | Description |
+
+| :--- | :--- | :--- |---
+
+| Next.js frontend + API | `3000` | Marketing site, dashboard, REST routes, NextAuth, Prisma. |
+
+| WebSocket live analysis | `8080` | Streams live emotion analysis updates (JWT protected). |![Login](https://github.com/user-attachments/assets/acd41eed-066d-4966-a7e0-0f8af20b52c3)![Screenshot 2025-06-04 at 1 28 12 PM](https://github.com/user-attachments/assets/f0ecda1e-39d7-4ed2-a635-efcf66348456)
+
+| FastAPI PDF analyzer | `8001` | Handles PDF/Excel extraction, summarisation, and sentiment classification. |
+
+| Stripe Webhooks | `3000` | Receives subscription lifecycle events via `/api/stripe/webhooks`. |## Architecture
+
+
+
+---![Signup](https://github.com/user-attachments/assets/bc2143fe-476c-4405-82d8-b92b4acad322)![Screenshot 2025-06-04 at 1 52 29 PM](https://github.com/user-attachments/assets/d4b293ad-2a63-4c15-b75e-536e1e52b650)
+
+
+
+## 📂 Repository Layout```mermaid
+
+
+
+```textflowchart LR![Screenshot 2025-06-04 at 1 53 00 PM](https://github.com/user-attachments/assets/15fa9613-ef52-4b9b-ace5-57aa78db54bb)
+
+sentiment-analysis/
+
+├── src/  User[User Browser] -->|HTTPS| Next[Next.js App]
+
+│   ├── app/                # Next.js routes, layout, pages, API endpoints
+
+│   ├── components/         # Reusable UI primitives and feature components  Next -- ORM --> Prisma[(Prisma + Database)]</details>![Screenshot 2025-06-04 at 1 53 26 PM](https://github.com/user-attachments/assets/3ede5f58-c754-4fec-a9d9-39cc610acb75)
+
+│   ├── lib/                # Stripe helper, quota manager, AWS utilities
+
+│   ├── server/  Next -->|REST| Stripe[(Stripe)]
+
+│   │   ├── auth/             # NextAuth configuration
+
+│   │   ├── db.ts           # Prisma client  Next -->|REST| AWS[(AWS S3 & SageMaker)]
+
+│   │   └── websocket/      # Live analysis WebSocket server (TypeScript)
+
+│   └── scripts/            # Utility scripts (websocket launcher)  Next -->|REST| PDFService[(FastAPI PDF Analyzer)]
+
+├── prisma/                 # Prisma schema and migrations
+
+├── pdf-analyzer-service/   # FastAPI microservice for PDF & Excel  Next -->|WS| LiveWS[(Live Analysis WebSocket)]<details>
+
+├── public/                 # Static assets
+
+├── styles/                 # Tailwind global styles  PDFService -->|Models| HF[Transformers & spaCy]
+
+├── QUICK_REFERENCE.md      # Developer command cheat sheet
+
+├── INSTALLATION_CHECKLIST.md```<summary><b>📊 Dashboard & Analysis</b></summary>---
+
+├── .env.example            # Environment variable template
+
+└── README.md               # You are here
+
+```
+
+### Core Services
+
+---
+
+
+
+## ⚡ Quick Start
+
+| Service | Port | Description |![Dashboard](https://github.com/user-attachments/assets/6338cf07-e3ca-4a74-b964-1559dad0d2a9)**LIVE DETECTION PAGE AND ANALYSIS RESULTS**
+
+### Prerequisites
+
+| --- | --- | --- |
+
+  - Node.js **18.18+** and npm **10+** *(Next.js 15 requirement)*
+
+  - Python **3.10+** with `uvicorn` (for the FastAPI service)| Next.js frontend + API | `3000` | Marketing site, dashboard, REST routes, NextAuth, Prisma. |![Analysis Results](https://github.com/user-attachments/assets/f0ecda1e-39d7-4ed2-a635-efcf66348456)
+
+  - Stripe account (test keys sufficient) for billing workflows
+
+  - AWS credentials with access to **S3** and **SageMaker Runtime**| WebSocket live analysis | `8080` | Streams live emotion analysis updates (JWT protected). |
+
+  - (Optional) PostgreSQL for production. SQLite is used by default for local development.
+
+| FastAPI PDF analyzer | `8001` | Handles PDF/Excel extraction, summarisation, and sentiment classification. |![Detailed Results](https://github.com/user-attachments/assets/d4b293ad-2a63-4c15-b75e-536e1e52b650)![Screenshot 2025-06-04 at 1 54 22 PM](https://github.com/user-attachments/assets/559e0407-9d7b-4061-a053-273755f1ba36)
+
+### 1. Clone & Install
+
+| Stripe Webhooks (ngrok recommended) | `3000`/`8787` | Receives subscription lifecycle events via `/api/stripe/webhooks`. |
+
+```bash
+
+git clone https://github.com/UtkarsHMer05/sentiment-analysis.git![Screenshot 2025-06-04 at 1 59 13 PM](https://github.com/user-attachments/assets/576e24f0-1671-4bc9-a1e3-8efe91a18930)
+
+cd sentiment-analysis
+
+npm install---
+
+```
+
+</details>![Screenshot 2025-06-04 at 1 59 28 PM](https://github.com/user-attachments/assets/d27ac8cc-aa95-4cff-bf90-462050149621)
+
+### 2. Configure Environment
+
+## Repository Layout
+
+```bash
+
+# Set up the Next.js app![Screenshot 2025-06-04 at 1 59 32 PM](https://github.com/user-attachments/assets/a3973568-c6ee-4ff3-a58b-bfc0a26b03da)
+
+cp .env.example .env.local
+
+# ... edit .env.local with your secrets ...```text
+
+
+
+# Set up the Python servicesentiment-analysis/<details>![Screenshot 2025-06-04 at 1 59 38 PM](https://github.com/user-attachments/assets/bb1e2d0f-29b9-4b1b-be85-5f6607cf06bd)
+
+cd pdf-analyzer-service
+
+cp .env.example .env├── src/
+
+# ... edit .env if needed ...
+
+cd ..│   ├── app/                # Next.js routes, layout, pages, API endpoints<summary><b>📹 Live Detection</b></summary>
+
+```
+
+│   ├── components/         # Reusable UI primitives and feature components
+
+### 3. Prepare the Database
+
+│   ├── lib/                # Stripe helper, quota manager, AWS utilities
+
+```bash
+
+# Generate Prisma client and run development migrations│   ├── server/
+
+npx prisma generate
+
+npx prisma migrate dev│   │   ├── auth/           # NextAuth configuration![Live Detection](https://github.com/user-attachments/assets/559e0407-9d7b-4061-a053-273755f1ba36)---
+
+
+
+# (Optional) Explore data│   │   ├── db.ts           # Prisma client
+
+npx prisma studio
+
+```│   │   └── websocket/      # Live analysis WebSocket server (TypeScript)![Live Results](https://github.com/user-attachments/assets/576e24f0-1671-4bc9-a1e3-8efe91a18930)
+
+
+
+### 4. Start Local Services│   └── scripts/            # Utility scripts (websocket launcher)
+
+
+
+```bash├── prisma/                 # Prisma schema and migrations![Emotion Analysis](https://github.com/user-attachments/assets/d27ac8cc-aa95-4cff-bf90-462050149621)## 📋 Table of Contents
+
+# Terminal A – Next.js app + REST API
+
+npm run dev├── pdf-analyzer-service/   # FastAPI microservice for PDF & Excel
+
+```
+
+├── public/                 # Static assets
+
+```bash
+
+# Terminal B – WebSocket live analysis server├── styles/                 # Tailwind global styles
+
+npm run websocket:dev
+
+```├── QUICK_REFERENCE.md      # Developer command cheat sheet</details>- [🌟 Overview](#-overview)
+
+
+
+```bash├── INSTALLATION_CHECKLIST.md
+
+# Terminal C – FastAPI PDF/Excel analyzer
+
+cd pdf-analyzer-service├── .env.example            # Environment variable template- [✨ Key Features](#-key-features)
+
+python -m venv venv
+
+source venv/bin/activate  # On Windows: .\venv\Scripts\activate└── README.md               # You are here
+
+pip install -r requirements.txt
+
+uvicorn main:app --reload --host 0.0.0.0 --port 8001```---- [🛠️ Tech Stack](#️-tech-stack)
+
+```
+
+
+
+### 5. Verify
+
+---- [🏗️ Architecture](#️-architecture)
+
+  - Visit `http://localhost:3000` for the UI.
+
+
+
+  - Create an account, generate an API key in **Dashboard → Developer → API Keys**.
+
+## Quick Start## 📋 Table of Contents- [⚡ Quick Start](#-quick-start)
+
+  - Test file uploads:
+
+
+
+    ```bash
+
+    curl -X POST http://localhost:3000/api/upload-url \### Prerequisites- [🔧 Installation](#-installation)
+
+      -H "Authorization: Bearer <your-api-key>" \
+
+      -H "Content-Type: application/json" \
+
+      -d '{"contentType":"video/mp4"}'
+
+    ```- Node.js **18.18+** and npm **10+** *(Next.js 15 requirement)*- [🌟 Overview](#-overview)- [⚙️ Configuration](#️-configuration)
+
+
+
+  - Confirm the FastAPI service responds:- Python **3.10+** with `uvicorn` (for the FastAPI service)
+
+
+
+    ```bash- Stripe account (test keys sufficient) for billing workflows- [✨ Key Features](#-key-features)- [📱 Usage](#-usage)
+
+    curl http://localhost:8001/health
+
+    ```- AWS credentials with access to **S3** and **SageMaker Runtime**
+
+
+
+---- (Optional) PostgreSQL for production deployments. SQLite is used by default for local development.- [🛠️ Tech Stack](#️-tech-stack)- [🔌 API Documentation](#-api-documentation)
+
+
+
+## ⚙️ Environment Variables
+
+
+
+| Variable | Required | Description |### 1. Clone & Install- [🏗️ System Architecture](#️-system-architecture)- [🎯 Features Deep Dive](#-features-deep-dive)
+
+| :--- | :--- | :--- |
+
+| `DATABASE_URL` | ✅ | Prisma datasource (`file:./dev.db` for SQLite or PostgreSQL URI). |
+
+| `AUTH_SECRET` | ✅ | NextAuth secret for signing JWTs (gen: `openssl rand -base64 32`). |
+
+| `NEXTAUTH_SECRET` | ✅ | Mirror `AUTH_SECRET`; used by the WebSocket server. |```bash- [📦 Prerequisites](#-prerequisites)- [🧪 Testing](#-testing)
+
+| `NEXTAUTH_URL` | ✅ | Fully qualified domain (e.g., `http://localhost:3000`). |
+
+| `AWS_REGION` | ✅ | AWS region hosting SageMaker & S3 (e.g., `us-east-1`). |git clone https://github.com/UtkarsHMer05/sentiment-analysis.git
+
+| `AWS_ACCESS_KEY_ID` | ✅ | IAM access key ID with S3 + SageMaker permissions. |
+
+| `AWS_SECRET_ACCESS_KEY` | ✅ | IAM secret key. |cd sentiment-analysis- [⚡ Quick Start](#-quick-start)- [🚀 Deployment](#-deployment)
+
+| `AWS_INFERENCE_BUCKET` | ✅ | S3 bucket storing uploaded videos before analysis. |
+
+| `AWS_ENDPOINT_NAME` | ✅ | SageMaker endpoint name invoked by sentiment inference API. |npm install
+
+| `STRIPE_PUBLIC_KEY` | ✅ | Publishable key for client-side Stripe SDK. |
+
+| `STRIPE_SECRET_KEY` | ✅ | Secret key for server-side Stripe actions. |```- [🔧 Detailed Installation](#-detailed-installation)- [🤝 Contributing](#-contributing)
+
+| `STRIPE_WEBHOOK_SECRET` | ✅ | Signing secret for `/api/stripe/webhooks`. |
+
+| `PYTHON_BACKEND_URL` | ➖ | Base URL of the FastAPI service (`http://localhost:8001`). |
+
+| `SKIP_ENV_VALIDATION` | ➖ | Set to `true` to bypass env validation during CI/Docker builds. |
+
+### 2. Configure Environment- [⚙️ Configuration Guide](#️-configuration-guide)- [🛣️ Roadmap](#️-roadmap)
+
+---
+
+
+
+## 🛠️ Services
+
+```bash- [🚀 Running the Application](#-running-the-application)- [📄 License](#-license)
+
+### Next.js Frontend & REST API
+
+cp .env.example .env.local
+
+  - Authentication powered by **NextAuth** with Prisma adapter.
+
+  - File uploads handled through `/api/upload-url` (S3 presigned URLs).# populate secrets for Next.js- [📱 Usage Guide](#-usage-guide)
+
+  - AWS SageMaker integration via `/api/sentiment-inference`.
+
+  - Document analysis orchestrated through `/api/pdf-analysis`, proxying to the FastAPI microservice.
+
+  - Stripe subscription and billing flows under `/api/stripe/*`.
+
+  - User quota and API key management at `/api/user/*`.cd pdf-analyzer-service- [🔌 API Reference](#-api-reference)---
+
+
+
+### WebSocket Live Analysis Servercp .env.example .env             # optional, only if you extend the service
+
+
+
+  - Located at `src/server/websocket/live-analysis-server.ts`.```- [📂 Project Structure](#-project-structure)
+
+  - JWT-protected connections using the NextAuth session token.
+
+  - Emits structured events (`video_analysis`, `audio_analysis`, `text_analysis`) on a fixed cadence.
+
+  - Launch via `npm run websocket:dev` in development.
+
+### 3. Prepare the Database- [🎯 Feature Deep Dive](#-feature-deep-dive)## 🌟 Overview
+
+### FastAPI PDF Analyzer
+
+
+
+  - Lives in `pdf-analyzer-service/`.
+
+  - Loads HuggingFace transformers and spaCy for NER.```bash- [🔒 Security & Privacy](#-security--privacy)
+
+  - Key endpoints:
+
+      - `GET /health`: Service readiness + model status.# Generate Prisma client and run development migrations
+
+      - `GET /models/status`: Per-model loading diagnostics.
+
+      - `POST /analyze-pdf`: Accepts multipart PDF/Excel uploads.npx prisma generate- [🚢 Deployment](#-deployment)**Layers** is a cutting-edge multimodal AI platform that revolutionizes video sentiment analysis by combining text, audio, and visual processing in real-time. Built with modern web technologies and powered by AWS SageMaker, it delivers enterprise-grade sentiment analysis with an intuitive user experience.
+
+
+
+---npx prisma migrate dev
+
+
+
+## 📱 Feature Walkthrough- [🧪 Testing](#-testing)
+
+
+
+  - **Dashboard**: Manage uploads, review sentiment timelines, monitor quota consumption.# Explore data (optional)
+
+  - **Live Detection**: Start a webcam session, stream frames/audio to the WebSocket, receive emotion overlays in real time.
+
+  - **Document Intelligence**: Drag-and-drop PDFs or spreadsheets, receive per-page sentiment, summaries, NER tagging, and word clouds.npx prisma studio- [🤝 Contributing](#-contributing)### 🎯 Problem We Solve
+
+  - **API Keys**: Generate and rotate keys, inspect usage, receive quota warnings.
+
+  - **Plans & Billing**: Stripe checkout for upgrades, webhook-driven activation, quota grants recorded in `ApiQuota`.```
+
+  - **Notifications & UI**: Toasts, modals, and responsive Tailwind UI/Framer Motion animations.
+
 - [📄 License](#-license)
+
+---
 
 Switch `DATABASE_URL` to a managed PostgreSQL instance before deploying.
 
+## 🔌 API Overview
+
 - [💬 Support](#-support)Traditional sentiment analysis tools only process text, missing crucial emotional cues from voice tone, facial expressions, and body language. Layers bridges this gap by analyzing all modalities simultaneously, providing:
 
+### REST Endpoints (Next.js)
+
 ### 4. Start Local Services
+
+| Route | Method | Purpose | Auth |
+
+| :--- | :--- | :--- | :--- |
+
+| `/api/upload-url` | `POST` | Generate S3 presigned URL for video uploads. | API key (Bearer) |
+
+| `/api/live-recording-upload`| `POST` | Persist live-recorded media chunks. | API key |```bash
+
+| `/api/sentiment-inference` | `POST` | Trigger SageMaker video sentiment analysis. | API key |
+
+| `/api/pdf-analysis` | `POST` | Proxy PDF/Excel to FastAPI service. | Session |# Terminal A – Next.js app + REST API---- **78.4% emotion recognition accuracy** (vs 65% industry standard)
+
+| `/api/live-emotion` | `POST` | Process recorded live detection sessions. | Session |
+
+| `/api/user/api-key` | `POST/DELETE`| Create or revoke user API keys. | Session |npm run dev
+
+| `/api/user/quota` | `GET` | Inspect quota consumption. | Session |
+
+| `/api/stripe/checkout` | `POST` | Create Stripe checkout session for plan upgrades. | Session |- **Real-time processing** with <1s latency
+
+| `/api/stripe/webhooks` | `POST` | Handle Stripe subscription events. | Stripe |
+
+# Terminal B – WebSocket live analysis server
+
+### WebSocket Events
+
+npm run websocket:dev## 🌟 Overview- **Production-ready scalability** on AWS infrastructure
+
+  - **Endpoint**: `ws://<host>:8080?token=<jwt>`
+
+
+
+  - **Payload Format**:
+
+# Terminal C – FastAPI PDF/Excel analyzer- **Developer-friendly APIs** with comprehensive documentation
+
+    ```json
+
+    {cd pdf-analyzer-service
+
+      "type": "video_analysis" | "audio_analysis" | "text_analysis",
+
+      "data": {python -m venv venvA production-ready, full-stack sentiment analysis platform that processes video, audio, and text to deliver real-time emotion detection and sentiment insights. Built with Next.js 15, AWS SageMaker, and a Python microservice architecture.
+
+        "emotion": "joy",
+
+        "sentiment": "positive",source venv/bin/activate
+
+        "confidence": 0.92,
+
+        "keywords": ["delighted", "excited"]pip install -r requirements.txt---
+
+      },
+
+      "timestamp": 1734882712345uvicorn main:app --reload --host 0.0.0.0 --port 8001
+
+    }
+
+    ``````### What This Platform Does
+
+
+
+### FastAPI Analyzer
+
+
+
+Example PDF analysis request:### 5. Verify## ✨ Key Features
 
 
 
 ```bash
 
-# Terminal A – Next.js app + REST API---- **78.4% emotion recognition accuracy** (vs 65% industry standard)
+curl -X POST http://localhost:8001/analyze-pdf \
 
-npm run dev
+  -F "file=@sample-feedback.pdf" \- Visit `http://localhost:3000` for the UI.- **Video Analysis**: Upload videos for batch sentiment analysis using AWS SageMaker
 
-- **Real-time processing** with <1s latency
+  -F "mode=combined"
 
-# Terminal B – WebSocket live analysis server
-
-npm run websocket:dev## 🌟 Overview- **Production-ready scalability** on AWS infrastructure
+```- Create an account, generate an API key in **Dashboard → Developer → API Keys**.
 
 
 
-# Terminal C – FastAPI PDF/Excel analyzer- **Developer-friendly APIs** with comprehensive documentation
-
-cd pdf-analyzer-service
-
-python -m venv venvA production-ready, full-stack sentiment analysis platform that processes video, audio, and text to deliver real-time emotion detection and sentiment insights. Built with Next.js 15, AWS SageMaker, and a Python microservice architecture.
-
-source venv/bin/activate
-
-pip install -r requirements.txt---
-
-uvicorn main:app --reload --host 0.0.0.0 --port 8001
-
-```### What This Platform Does
+---- Test file uploads:- **Live Detection**: Real-time emotion recognition via webcam with speech transcription### 🤖 AI & Machine Learning
 
 
 
-### 5. Verify## ✨ Key Features
+## 🚀 Deployment
 
 
 
-- Visit `http://localhost:3000` for the UI.- **Video Analysis**: Upload videos for batch sentiment analysis using AWS SageMaker
-
-- Create an account, generate an API key in **Dashboard → Developer → API Keys**.
-
-- Test file uploads:- **Live Detection**: Real-time emotion recognition via webcam with speech transcription### 🤖 AI & Machine Learning
+### Vercel (Recommended for Web)  ```bash- **Document Processing**: Analyze PDF and Excel files for sentiment patterns with NLP- **Multimodal Analysis**: Simultaneous text, audio, and video processing
 
 
 
-  ```bash- **Document Processing**: Analyze PDF and Excel files for sentiment patterns with NLP- **Multimodal Analysis**: Simultaneous text, audio, and video processing
+  - Connect repository, set environment variables in the Vercel dashboard.  curl -X POST http://localhost:3000/api/upload-url \
 
-  curl -X POST http://localhost:3000/api/upload-url \
+  - Use Vercel Postgres or Neon for production database.
 
-    -H "Authorization: Bearer <api-key>" \- **API Access**: Developer-friendly REST API with quota management- **Real-time Inference**: Sub-second response times via AWS SageMaker
+  - The WebSocket and FastAPI services must be deployed separately (e.g., on AWS ECS, GCP Cloud Run, or Render).    -H "Authorization: Bearer <api-key>" \- **API Access**: Developer-friendly REST API with quota management- **Real-time Inference**: Sub-second response times via AWS SageMaker
 
-    -H "Content-Type: application/json" \
 
-    -d '{"contentType":"video/mp4"}'- **Subscription Management**: Stripe-powered billing with multiple tiers- **7 Emotion Classes**: Anger, disgust, fear, joy, neutral, sadness, surprise
 
-  ```
+### Docker / Self-Hosting    -H "Content-Type: application/json" \
 
-- **3 Sentiment Categories**: Positive, negative, neutral
 
-- Confirm the FastAPI service responds:
+
+1.  **Build the Next.js app**:    -d '{"contentType":"video/mp4"}'- **Subscription Management**: Stripe-powered billing with multiple tiers- **7 Emotion Classes**: Anger, disgust, fear, joy, neutral, sadness, surprise
+
+    ```bash
+
+    npm run build  ```
+
+    # Start with: npm run start
+
+    ```- **3 Sentiment Categories**: Positive, negative, neutral
+
+2.  **Containerise the WebSocket server** with `node:18-alpine` and run `node dist/live-analysis-server.js` (after bundling).
+
+3.  **Containerise the FastAPI service** using `python:3.11-slim`, copying `requirements.txt` and `main.py`.- Confirm the FastAPI service responds:
+
+4.  Use a reverse proxy (Nginx, Traefik) to expose ports 3000 (Next.js), 8080 (WebSocket), 8001 (FastAPI).
 
 ### Problem Solved- **Live Video Processing**: Stream analysis with WebRTC integration
 
+### AWS Infrastructure
+
   ```bash
 
-  curl http://localhost:8001/health
+  - **S3 Bucket**: Must match `AWS_INFERENCE_BUCKET`.
 
-  ```
+  - **SageMaker Endpoint**: Must match `AWS_ENDPOINT_NAME`.  curl http://localhost:8001/health
 
-Traditional sentiment analysis only processes text. This platform analyzes **all modalities simultaneously**:### 🎨 User Experience
+  - **FastAPI Service**: Deploy to AWS Lambda (via container image) or ECS/Fargate.
 
-- Connect to the WebSocket with a JWT obtained from NextAuth (browser session) at `ws://localhost:8080?token=<jwt>`.
+  - **WebSocket Service**: Deploy to ECS/Fargate or an EC2 instance.  ```
 
-- 🎭 Facial expressions (video)- **Responsive Design**: Mobile-first approach with Tailwind CSS
+  - **Database**: Use Amazon RDS for PostgreSQL.
 
----
+  - **Secrets**: Use AWS Secrets Manager.Traditional sentiment analysis only processes text. This platform analyzes **all modalities simultaneously**:### 🎨 User Experience
 
-- 🎤 Voice tone and prosody (audio)- **Real-time Dashboard**: Live analytics and processing status
+
+
+---- Connect to the WebSocket with a JWT obtained from NextAuth (browser session) at `ws://localhost:8080?token=<jwt>`.
+
+
+
+## 🧪 Testing & Quality- 🎭 Facial expressions (video)- **Responsive Design**: Mobile-first approach with Tailwind CSS
+
+
+
+  - `npm run lint`: Run Next.js ESLint rules.---
+
+  - `npm run typecheck`: Run TypeScript compile check.
+
+  - `npm run check`: Run combined lint + typecheck.- 🎤 Voice tone and prosody (audio)- **Real-time Dashboard**: Live analytics and processing status
+
+  - `npm run format:check`: Run Prettier formatting guard.
 
 ## Environment Variables
 
+---
+
 - 📝 Spoken/written content (text)- **Interactive Animations**: Smooth transitions with Framer Motion
+
+## 🤕 Troubleshooting
 
 | Variable | Required | Description |
 
-| --- | --- | --- |- **Dark/Light Themes**: Customizable UI preferences
+  - **Env validation failed**: Ensure every required variable exists in `.env.local`. Set `SKIP_ENV_VALIDATION=true` only for CI builds.
 
-| `DATABASE_URL` | ✅ | Prisma datasource (`file:./dev.db` for SQLite or PostgreSQL URI in production). |
+  - **WebSocket rejects connections**: Provide a valid JWT token from an authenticated session.| --- | --- | --- |- **Dark/Light Themes**: Customizable UI preferences
+
+  - **SageMaker errors**: Check endpoint name/region and confirm IAM user has `sagemaker:InvokeEndpoint` permissions.
+
+  - **Stripe webhook signature mismatch**: Expose your local server via `stripe listen` or `ngrok`. Confirm `STRIPE_WEBHOOK_SECRET` matches.| `DATABASE_URL` | ✅ | Prisma datasource (`file:./dev.db` for SQLite or PostgreSQL URI in production). |
+
+  - **FastAPI slow start**: First boot downloads transformer weights. Pre-download models or bake them into your Docker image for production.
 
 | `AUTH_SECRET` | ✅ | NextAuth secret for signing JWTs (generate via `openssl rand -base64 32`). |**Result**: Higher accuracy emotion detection (78.4% vs industry standard 65%)- **Progress Tracking**: Visual feedback for long-running processes
 
+---
+
 | `NEXTAUTH_SECRET` | ✅ | Mirror `AUTH_SECRET`; used by the WebSocket server fallback. |
+
+## 🛣️ Roadmap
 
 | `NEXTAUTH_URL` | ✅ | Fully qualified domain (e.g., `http://localhost:3000`). |
 
-| `AWS_REGION` | ✅ | AWS region hosting SageMaker & S3 (e.g., `us-east-1`). |
+  - [✅] Comprehensive documentation, quick reference, and installation checklist.
 
-| `AWS_ACCESS_KEY_ID` | ✅ | IAM access key ID with S3 + SageMaker permissions. |---### 🔐 Enterprise Features
+  - [🔄] Automated test suite (unit + e2e) with CI integration.| `AWS_REGION` | ✅ | AWS region hosting SageMaker & S3 (e.g., `us-east-1`). |
 
-| `AWS_SECRET_ACCESS_KEY` | ✅ | IAM secret key. |
+  - [🔄] Production Docker images and deployment manifests.
 
-| `AWS_INFERENCE_BUCKET` | ✅ | S3 bucket storing uploaded videos before analysis. |- **Secure Authentication**: NextAuth.js with multiple providers
+  - [🔄] Advanced analytics for quota and usage trends.| `AWS_ACCESS_KEY_ID` | ✅ | IAM access key ID with S3 + SageMaker permissions. |---### 🔐 Enterprise Features
 
-| `AWS_ENDPOINT_NAME` | ✅ | SageMaker endpoint name invoked by sentiment inference API. |
+  - [💡] Team collaboration features (shared workspaces).
 
-| `STRIPE_PUBLIC_KEY` | ✅ | Publishable key for client-side Stripe SDK. |## ✨ Key Features- **API Key Management**: Secure access with quota controls
+  - [💡] Additional analysis modes (e.g., audio-only, text-only).| `AWS_SECRET_ACCESS_KEY` | ✅ | IAM secret key. |
 
-| `STRIPE_SECRET_KEY` | ✅ | Secret key for server-side Stripe actions. |
 
-| `STRIPE_WEBHOOK_SECRET` | ✅ | Signing secret for `/api/stripe/webhooks`. |- **Payment Integration**: Stripe subscription management
 
-| `PYTHON_BACKEND_URL` | ➖ | Base URL of the PDF/Excel FastAPI service (`http://localhost:8001`). |
+---| `AWS_INFERENCE_BUCKET` | ✅ | S3 bucket storing uploaded videos before analysis. |- **Secure Authentication**: NextAuth.js with multiple providers
 
-| `NODE_ENV` | ➖ | Default `development`; set to `production` in deployments. |### 🤖 AI & Machine Learning- **Usage Analytics**: Comprehensive quota and billing tracking
 
-| `SKIP_ENV_VALIDATION` | ➖ | Set to `true` to bypass env validation during CI/Docker builds. |
 
-- ✅ **Multimodal Fusion** - Combines text, audio, and video analysis- **Role-based Access**: User permission management
+## 🤝 Contributing| `AWS_ENDPOINT_NAME` | ✅ | SageMaker endpoint name invoked by sentiment inference API. |
 
-> Copy `.env.example` as a template. For production, store secrets in managed services (Vercel env, AWS Parameter Store, etc.).
 
-- ✅ **7 Emotion Classes** - Anger, disgust, fear, joy, neutral, sadness, surprise
 
----
+1.  Fork the repository.| `STRIPE_PUBLIC_KEY` | ✅ | Publishable key for client-side Stripe SDK. |## ✨ Key Features- **API Key Management**: Secure access with quota controls
 
-- ✅ **3 Sentiment Types** - Positive, negative, neutral### ☁️ Cloud Infrastructure
+2.  Create a feature branch: `git checkout -b feat/amazing-feature`.
 
-## Services
+3.  Commit changes with semantic messages: `git commit -m "feat: add amazing feature"`.| `STRIPE_SECRET_KEY` | ✅ | Secret key for server-side Stripe actions. |
 
-- ✅ **Real-time Processing** - Sub-second inference via AWS SageMaker- **AWS SageMaker**: Scalable ML model deployment
+4.  Run `npm run check` to ensure code quality.
 
-### Next.js Frontend & REST API
+5.  Submit a pull request.| `STRIPE_WEBHOOK_SECRET` | ✅ | Signing secret for `/api/stripe/webhooks`. |- **Payment Integration**: Stripe subscription management
 
-- ✅ **Document Analysis** - PDF/Excel sentiment extraction with wordclouds- **S3 Storage**: Secure file storage and retrieval
 
-- Authentication powered by **NextAuth** with Prisma adapter.
 
-- File uploads handled through `/api/upload-url` (S3 presigned URLs) and `/api/live-recording-upload` for live capture.- **Auto-scaling**: Dynamic resource allocation
+Please review the [installation checklist](INSTALLATION_CHECKLIST.md) before submitting production-oriented changes.| `PYTHON_BACKEND_URL` | ➖ | Base URL of the PDF/Excel FastAPI service (`http://localhost:8001`). |
 
-- AWS SageMaker integration via `/api/sentiment-inference`.
 
-- Document analysis orchestrated through `/api/pdf-analysis`, proxying to the FastAPI microservice.### 🎨 User Experience- **Cost Optimization**: Smart instance management
+
+---| `NODE_ENV` | ➖ | Default `development`; set to `production` in deployments. |### 🤖 AI & Machine Learning- **Usage Analytics**: Comprehensive quota and billing tracking
+
+
+
+## 📄 License| `SKIP_ENV_VALIDATION` | ➖ | Set to `true` to bypass env validation during CI/Docker builds. |
+
+
+
+This project is licensed under the [MIT License](LICENSE).- ✅ **Multimodal Fusion** - Combines text, audio, and video analysis- **Role-based Access**: User permission management
+
+
+
+---> Copy `.env.example` as a template. For production, store secrets in managed services (Vercel env, AWS Parameter Store, etc.).
+
+
+
+## 📞 Support- ✅ **7 Emotion Classes** - Anger, disgust, fear, joy, neutral, sadness, surprise
+
+
+
+  - Open an [issue](https://github.com/UtkarsHMer05/sentiment-analysis/issues) for bugs and feature ideas.---
+
+  - Reach out via the dashboard contact form (coming soon) for commercial inquiries.
+
+  - **Star the repo if this saved you time!** ⭐- ✅ **3 Sentiment Types** - Positive, negative, neutral### ☁️ Cloud Infrastructure
+
+
+
+---## Services
+
+
+
+## 📚 Bonus Resources- ✅ **Real-time Processing** - Sub-second inference via AWS SageMaker- **AWS SageMaker**: Scalable ML model deployment
+
+
+
+  - [`QUICK_REFERENCE.md`](QUICK_REFERENCE.md) for day-to-day commands.### Next.js Frontend & REST API
+
+  - [`INSTALLATION_CHECKLIST.md`](INSTALLATION_CHECKLIST.md) to validate new environments.
+
+  - [`pdf-analyzer-service/README.md`](pdf-analyzer-service/README.md) for microservice specifics.- ✅ **Document Analysis** - PDF/Excel sentiment extraction with wordclouds- **S3 Storage**: Secure file storage and retrieval
+
+
+
+---- Authentication powered by **NextAuth** with Prisma adapter.
+
+
+
+<div align="center">- File uploads handled through `/api/upload-url` (S3 presigned URLs) and `/api/live-recording-upload` for live capture.- **Auto-scaling**: Dynamic resource allocation
+
+
+
+**Made with ❤️ by [Utkarsh Khajuria](https://github.com/UtkarsHMer05)**- AWS SageMaker integration via `/api/sentiment-inference`.
+
+
+
+</div>- Document analysis orchestrated through `/api/pdf-analysis`, proxying to the FastAPI microservice.### 🎨 User Experience- **Cost Optimization**: Smart instance management
+
 
 - Stripe subscription and billing flows under `/api/stripe/*`.
 
