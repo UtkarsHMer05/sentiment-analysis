@@ -1158,7 +1158,343 @@ docker run -p 3000:3000 sentiment-app
 
 ---
 
-## 🛣️ Roadmap
+## � Quick Reference
+
+### Common Commands
+
+#### Development
+
+```bash
+# Start everything (Next.js + WebSocket)
+npm run dev:full
+
+# Start Next.js only
+npm run dev
+
+# Start WebSocket only
+npm run websocket
+
+# Start Python service
+cd pdf-analyzer-service && source venv/bin/activate && python main.py
+
+# Database studio
+npx prisma studio
+```
+
+#### Database
+
+```bash
+# Generate Prisma client
+npx prisma generate
+
+# Push schema to database
+npx prisma db push
+
+# Create migration
+npx prisma migrate dev --name your_migration_name
+
+# Reset database (WARNING: deletes all data)
+npx prisma migrate reset
+```
+
+#### Code Quality
+
+```bash
+# Lint code
+npm run lint
+
+# Fix lint issues
+npm run lint:fix
+
+# Type check
+npm run type-check
+
+# Format code
+npm run format:write
+
+# Check formatting
+npm run format:check
+```
+
+#### Build & Deploy
+
+```bash
+# Build for production
+npm run build
+
+# Start production server
+npm start
+
+# Preview production build
+npm run preview
+
+# Deploy to Vercel
+vercel --prod
+```
+
+### Port Reference
+
+| Service | Port | URL |
+|---------|------|-----|
+| Next.js | 3000 | http://localhost:3000 |
+| WebSocket | 8080 | ws://localhost:8080 |
+| Python API | 8001 | http://localhost:8001 |
+| Prisma Studio | 5555 | http://localhost:5555 |
+
+### Project Structure Quick Reference
+
+```
+src/
+├── app/
+│   ├── api/          # API endpoints
+│   ├── dashboard/    # Main dashboard
+│   ├── live-detection/  # Live emotion capture
+│   └── pdf-analysis/    # Document analysis
+├── components/       # React components
+├── lib/             # Utilities
+│   ├── quota.ts     # Quota management
+│   └── stripe.ts    # Stripe config
+├── server/
+│   ├── auth/        # NextAuth config
+│   └── websocket/   # WebSocket server
+└── styles/          # Global styles
+```
+
+### API Quick Reference
+
+#### Get API Key
+
+```bash
+curl http://localhost:3000/api/user/api-key \
+  -H "Cookie: next-auth.session-token=YOUR_SESSION"
+```
+
+#### Check Quota
+
+```bash
+curl http://localhost:3000/api/user/quota-status \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+#### Upload Video
+
+```bash
+# 1. Get upload URL
+curl -X POST http://localhost:3000/api/upload-url \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"fileType": ".mp4"}'
+
+# 2. Upload to S3
+curl -X PUT "PRESIGNED_URL" --upload-file video.mp4
+
+# 3. Analyze
+curl -X POST http://localhost:3000/api/sentiment-inference \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"key": "inference/uuid.mp4"}'
+```
+
+---
+
+## ✅ Installation Checklist
+
+Use this checklist to track your setup progress:
+
+### Pre-Installation
+
+- [ ] Node.js 18+ installed (`node --version`)
+- [ ] Python 3.10+ installed (`python3 --version`)
+- [ ] Git installed (`git --version`)
+- [ ] AWS account created
+- [ ] Stripe account created (for payments)
+- [ ] 8GB+ RAM available
+- [ ] 5GB+ disk space available
+
+### Project Setup
+
+#### 1. Clone Repository
+- [ ] Repository cloned: `git clone https://github.com/UtkarsHMer05/sentiment-analysis.git`
+- [ ] Changed to project directory: `cd sentiment-analysis`
+
+#### 2. Node.js Setup
+- [ ] Dependencies installed: `npm install`
+- [ ] No errors during installation
+- [ ] `node_modules/` folder created
+
+#### 3. Environment Configuration
+- [ ] `.env.local` file created
+- [ ] All environment variables filled out
+
+#### 4. Database Setup
+- [ ] Prisma client generated: `npx prisma generate`
+- [ ] Database schema pushed: `npx prisma db push`
+- [ ] `prisma/dev.db` created (for SQLite)
+
+#### 5. Python Service Setup
+- [ ] Changed to service directory: `cd pdf-analyzer-service`
+- [ ] Setup script executed: `./setup.sh`
+- [ ] Virtual environment created: `venv/` folder exists
+- [ ] Dependencies installed successfully
+- [ ] spaCy model downloaded: `en_core_web_sm`
+- [ ] Health check passed: `curl http://localhost:8001/health`
+
+### Environment Variables
+
+#### Required Variables
+- [ ] `DATABASE_URL` - Database connection string
+- [ ] `AUTH_SECRET` - Generated with `openssl rand -base64 32`
+- [ ] `NEXTAUTH_URL` - Set to `http://localhost:3000`
+- [ ] `AWS_REGION` - AWS region (e.g., `us-east-1`)
+- [ ] `AWS_ACCESS_KEY_ID` - Your AWS access key
+- [ ] `AWS_SECRET_ACCESS_KEY` - Your AWS secret key
+- [ ] `AWS_INFERENCE_BUCKET` - S3 bucket name
+- [ ] `AWS_ENDPOINT_NAME` - SageMaker endpoint name
+- [ ] `STRIPE_PUBLIC_KEY` - Stripe publishable key
+- [ ] `STRIPE_SECRET_KEY` - Stripe secret key
+
+#### Optional Variables
+- [ ] `STRIPE_WEBHOOK_SECRET` - For Stripe webhooks
+- [ ] `PYTHON_BACKEND_URL` - Python service URL (default: `http://localhost:8001`)
+- [ ] `NODE_ENV` - Set to `development` or `production`
+
+### AWS Setup
+
+#### S3 Bucket
+- [ ] S3 bucket created
+- [ ] Bucket name added to `.env.local`
+- [ ] CORS configuration applied
+- [ ] Test upload successful
+
+#### IAM User
+- [ ] IAM user created with programmatic access
+- [ ] Permissions attached (AmazonS3FullAccess, AmazonSageMakerFullAccess)
+- [ ] Access keys generated
+- [ ] Keys added to `.env.local`
+
+#### SageMaker Endpoint
+- [ ] ML model deployed to SageMaker (or using existing endpoint)
+- [ ] Endpoint name added to `.env.local`
+- [ ] Test inference successful
+
+### Stripe Setup
+
+- [ ] Stripe account created
+- [ ] Test mode keys obtained
+- [ ] Keys added to `.env.local`
+- [ ] Webhook endpoint created (for production)
+- [ ] Webhook secret added (if applicable)
+
+### Service Verification
+
+#### Next.js Server
+- [ ] Server starts: `npm run dev`
+- [ ] Accessible at `http://localhost:3000`
+- [ ] No console errors
+- [ ] Landing page loads
+
+#### WebSocket Server
+- [ ] Server starts: `npm run websocket`
+- [ ] Listening on port 8080
+- [ ] No connection errors
+
+#### Python Service
+- [ ] Service starts: `python main.py` (in pdf-analyzer-service)
+- [ ] Accessible at `http://localhost:8001`
+- [ ] Health check returns: `{"status": "healthy"}`
+- [ ] All models loaded successfully
+
+#### Database
+- [ ] Prisma Studio opens: `npx prisma studio`
+- [ ] Can view tables
+- [ ] No connection errors
+
+### Functionality Tests
+
+#### Authentication
+- [ ] Signup page accessible at `/signup`
+- [ ] Can create new account
+- [ ] Login page accessible at `/login`
+- [ ] Can login with credentials
+- [ ] Dashboard accessible after login
+
+#### Video Analysis
+- [ ] Can access dashboard at `/dashboard`
+- [ ] Can request upload URL
+- [ ] Can upload test video
+- [ ] Can trigger analysis
+- [ ] Results displayed correctly
+
+#### Live Detection
+- [ ] Can access `/live-detection`
+- [ ] Camera permission granted
+- [ ] Can start/stop recording
+- [ ] Can upload recording
+- [ ] Results displayed on `/live-results`
+
+#### PDF Analysis
+- [ ] Can access `/pdf-analysis`
+- [ ] Can upload PDF file
+- [ ] Analysis completes successfully
+- [ ] Results include sentiment + wordcloud
+
+#### API Access
+- [ ] Can retrieve API key from dashboard
+- [ ] API key works with endpoints
+- [ ] Quota tracking functions correctly
+- [ ] Rate limiting works
+
+### Production Readiness
+
+#### Security
+- [ ] All `.env` files in `.gitignore`
+- [ ] Strong `AUTH_SECRET` generated
+- [ ] AWS credentials secured
+- [ ] Stripe keys secured
+- [ ] HTTPS enabled (production)
+
+#### Performance
+- [ ] Production build successful: `npm run build`
+- [ ] No build errors
+- [ ] Bundle size acceptable
+- [ ] Page load times < 3 seconds
+
+#### Database
+- [ ] Using PostgreSQL for production (not SQLite)
+- [ ] Database migrations applied
+- [ ] Backups configured
+- [ ] Connection pooling configured
+
+#### Monitoring
+- [ ] Error tracking setup (e.g., Sentry)
+- [ ] Logging configured
+- [ ] Health checks implemented
+- [ ] Alerts configured
+
+#### Deployment
+- [ ] Environment variables set in hosting platform
+- [ ] Python service deployed separately
+- [ ] WebSocket server configured
+- [ ] CDN configured
+- [ ] Domain configured with SSL
+
+### Common Issues Check
+
+If something isn't working, verify:
+
+- [ ] All services are running (Next.js, WebSocket, Python)
+- [ ] `.env.local` file exists and is complete
+- [ ] No typos in environment variables
+- [ ] Ports 3000, 8001, and 8080 are not in use by other apps
+- [ ] Node modules are installed
+- [ ] Python virtual environment is activated
+- [ ] Database is accessible
+- [ ] AWS credentials are valid
+- [ ] Internet connection is stable
+
+---
+
+## �🛣️ Roadmap
 
 - [x] Modern dashboard UI
 - [x] Live analysis
