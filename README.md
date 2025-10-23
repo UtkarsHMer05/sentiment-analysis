@@ -176,6 +176,8 @@ Traditional sentiment analysis tools only process text, missing crucial emotiona
 
 - AWS SageMaker
 - AWS S3
+- AWS EC2
+- AWS IAM
 - AWS CloudWatch
 - Stripe Payments
 - SQLite/PostgreSQL
