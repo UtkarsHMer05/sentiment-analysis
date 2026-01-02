@@ -4,7 +4,7 @@ import { db } from "~/server/db";
 import crypto from "crypto";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2025-05-28.basil", // Keeping your beta version as requested
+  apiVersion: "2025-08-27.basil",
 });
 
 const PLAN_QUOTAS = {

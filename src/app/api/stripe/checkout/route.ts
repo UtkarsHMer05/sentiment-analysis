@@ -3,7 +3,7 @@ import Stripe from "stripe";
 import { auth } from "~/server/auth";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2025-05-28.basil",
+  apiVersion: "2025-08-27.basil",
 });
 
 export async function POST(req: NextRequest) {
