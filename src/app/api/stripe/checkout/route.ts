@@ -30,6 +30,11 @@ export async function POST(req: NextRequest) {
       isStacking,
     });
 
+    // Dynamically get the base URL from the request
+    const host = req.headers.get("host") || "localhost:3000";
+    const protocol = host.includes("localhost") ? "http" : "https";
+    const baseUrl = `${protocol}://${host}`;
+
     // FIXED: Use subscription mode for recurring prices
     const checkoutSession = await stripe.checkout.sessions.create({
       mode: "subscription", // CHANGED from "payment" to "subscription"
@@ -40,8 +45,8 @@ export async function POST(req: NextRequest) {
           quantity: 1,
         },
       ],
-      success_url: `${process.env.NEXTAUTH_URL}/dashboard?success=true&plan=${planName}`,
-      cancel_url: `${process.env.NEXTAUTH_URL}/pricing?canceled=true`,
+      success_url: `${baseUrl}/dashboard?success=true&plan=${planName}`,
+      cancel_url: `${baseUrl}/pricing?canceled=true`,
       customer_email: session.user.email!,
       metadata: {
         userId: session.user.id,
