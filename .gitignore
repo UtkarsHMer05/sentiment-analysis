@@ -44,3 +44,54 @@ yarn-error.log*
 
 # idea files
 .idea
+
+# Python virtual environment
+.venv/
+venv/
+env/
+.env/
+ENV/
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Python service specific
+pdf-analyzer-service/venv/
+pdf-analyzer-service/.venv/
+pdf-analyzer-service/__pycache__/
+pdf-analyzer-service/*.log
+*.log
+
+# SQLite database files
+*.db
+*.sqlite
+*.sqlite3
+prisma/dev.db
+prisma/dev.db-journal
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cache
+.cache/
+*.cache
